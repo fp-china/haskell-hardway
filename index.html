@@ -190,26 +190,26 @@
 <p><img alt="Haskell logo" src="./Learn Haskell Fast and Hard_files/Haskell-logo.png"></p>
 
 <ul>
-  <li><a href="http://www.haskell.org/platform">Haskell Platform</a> is the standard way to install Haskell.</li>
+  <li><a href="http://www.haskell.org/platform">Haskell Platform</a> 是安装 Haskell 的标准方法..</li>
 </ul>
 
-<p>Tools:</p>
+<p>工具:</p>
 
 <ul>
-  <li><code>ghc</code>: Compiler similar to gcc for <code>C</code>.</li>
-  <li><code>ghci</code>: Interactive Haskell (REPL)</li>
-  <li><code>runhaskell</code>: Execute a program without compiling it. Convenient but very slow compared to compiled programs.</li>
+  <li><code>ghc</code>: 编译器, 类似于对 <code>C</code> 而言的 gcc.</li>
+  <li><code>ghci</code>: 交互式的 Haskell (REPL)</li>
+  <li><code>runhaskell</code>: 不编译而直接运行 Haskell 程序. 方便, 但对比经过编译的程序显得很慢.</li>
 </ul>
 
 <h3 id="don-t-be-afraid">别担心</h3>
 
 <p><img alt="The Scream" src="./Learn Haskell Fast and Hard_files/munch_TheScream.jpg"></p>
 
-<p>Many book/articles about Haskell start by introducing some esoteric formula (quick sort, Fibonacci, etc…).
-I will do the exact opposite.
-At first I won’t show you any Haskell super power.
-I will start with similarities between Haskell and other programming languages.
-Let’s jump to the mandatory “Hello World”.</p>
+<p>很多 Haskell 的书籍文章一开始的介绍用的是那些深奥的程序(快速排序, Fibonacci, 等等...).
+我想做的恰恰相反.
+首先我不会给你看任何 Haskell 的超能力.
+我会从 Haskell 与其他编程语言之间的相似点开始.
+让我们开始看惯例的 "Hello World".</p>
 
 <div class="codehighlight">
 
@@ -219,14 +219,14 @@ Let’s jump to the mandatory “Hello World”.</p>
 
 
 </div>
-<p>To run it, you can save this code in a <code>hello.hs</code> and:</p>
+<p>要运行的话, 可以把代码存为 <code>hello.hs</code> 然后执行:</p>
 
 <pre><code class="zsh avrasm">~ runhaskell ./hello<span class="preprocessor">.hs</span> Hello World!
 </code></pre>
 
-<p>You could also download the literate Haskell source.
-You should see a link just above the introduction title.
-Download this file as <code>00_hello_world.lhs</code> and:</p>
+<p>你也可以下载这份文本的 Haskell 代码.
+你应该能看到标题"介绍"上方有个链接.
+把文件下载保存为 <code>00_hello_world.lhs</code> 然后执行:</p>
 
 <pre><code class="zsh markdown">~ runhaskell 00<span class="emphasis">_hello_</span>world.lhs
 Hello World!
@@ -237,7 +237,7 @@ Hello World!
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/10_hello_you.lhs" class="cut">01_basic/10_Introduction/<strong>10_hello_you.lhs</strong></a></p>
 
-<p>Now, a program asking your name and replying “Hello” using the name you entered:</p>
+<p>现在, 一个询问你姓名并根据你输入的姓名回答"Hello"的程序:</p>
 
 <div class="codehighlight">
 
@@ -250,7 +250,7 @@ Hello World!
 
 
 </div>
-<p>First, let us compare with a similar program in some imperative languages:</p>
+<p>首先, 让我们跟一些命令式语言写的类似程序对比:</p>
 
 <pre><code class="python"> <span class="comment"># Python</span>
 <span class="keyword">print</span> <span class="string">"What is your name?"</span>
@@ -276,14 +276,15 @@ int main (int argc, char **argv) <span class="special">{</span>
 <span class="special">}</span>
 </code></pre>
 
-<p>The structure is the same, but there are some syntax differences.
-A major part of this tutorial will be dedicated to explaining why.</p>
+<p>结构是一样的, 但有些语法差异.
+这分教程主体部分会专门用来解释原因.</p>
 
-<p>In Haskell, there is a <code>main</code> function and every object has a type.
-The type of <code>main</code> is <code>IO ()</code>.
-This means, <code>main</code> will cause side effects.</p>
+<p>Haskell 里有个<code>main</code> 函数, 然后每个对象有它的类型.
+<code>main</code> 的类型是 <code>IO ()</code>.
+意味着, <code>main</code> 将引起副作用.</p>
 
 <p>Just remember that Haskell can look a lot like mainstream imperative languages.</p>
+<p>反正记住 Haskell 可以更像主流命令式语言.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/10_hello_you.lhs" class="cut">01_basic/10_Introduction/<strong>10_hello_you.lhs</strong> </a></p>
 
