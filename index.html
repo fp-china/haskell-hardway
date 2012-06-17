@@ -25,74 +25,74 @@
                 <div class="corps">
                     <p><img alt="Magritte pleasure principle" src="./Learn Haskell Fast and Hard_files/magritte_pleasure_principle.jpg"></p>
 <div class="intro">
-<p><span class="sc"><abbr title="Too long; didn&#39;t read">tl;dr</abbr>: </span> A very short and dense tutorial for learning Haskell.</p>
+<p><span class="sc"><abbr title="Too long; didn&#39;t read">长文</abbr>: </span> 这是一份浓缩过的 Haskell 教程.</p>
 
 <blockquote><center><hr style="width:30%;float:left;border-color:#CCCCD0;margin-top:1em">
-<span class="sc"><b>Table of Content</b></span>
+<span class="sc"><b>目录</b></span>
 <hr style="width:30%;float:right;border-color:#CCCCD0;margin-top:1em"></center>
 <div class="toc">
   <ul>
-    <li><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#introduction">Introduction</a>
+    <li><a href="#introduction">介绍</a>
       <ul>
-        <li><a href="#install">Install</a></li>
-        <li><a href="#don-t-be-afraid">Don’t be afraid</a></li>
-        <li><a href="#very-basic-haskell">Very basic Haskell</a>
+        <li><a href="#install">安装</a></li>
+        <li><a href="#don-t-be-afraid">别担心</a></li>
+        <li><a href="#very-basic-haskell">基础的 Haskell</a>
           <ul>
-            <li><a href="#function-declaration">Function declaration</a></li>
-            <li><a href="#a-type-example">A Type Example</a></li>
+            <li><a href="#function-declaration">函数声明</a></li>
+            <li><a href="#a-type-example">类型的例子</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#essential-haskell">Essential Haskell</a>
+    <li><a href="#essential-haskell">Haskell 要点</a>
       <ul>
-        <li><a href="#notations">Notations</a>
+        <li><a href="#notations">记法</a>
           <ul>
-            <li><a href="#arithmetic">Arithmetic</a></li>
-            <li><a href="#logic">Logic</a></li>
+            <li><a href="#arithmetic">算术</a></li>
+            <li><a href="#logic">逻辑</a></li>
             <li><a href="#powers">Powers</a></li>
             <li><a href="#lists">Lists</a></li>
             <li><a href="#strings">Strings</a></li>
             <li><a href="#tuples">Tuples</a></li>
-            <li><a href="#deal-with-parentheses">Deal with parentheses</a></li>
+            <li><a href="#deal-with-parentheses">处理圆括号</a></li>
           </ul>
         </li>
-        <li><a href="#useful-notations-for-functions">Useful notations for functions</a></li>
+        <li><a href="#useful-notations-for-functions">常用函数记法</a></li>
       </ul>
     </li>
-    <li><a href="#hard-part">Hard Part</a>
+    <li><a href="#hard-part">难点</a>
       <ul>
-        <li><a href="#functional-style">Functional style</a>
+        <li><a href="#functional-style">函数风格</a>
           <ul>
-            <li><a href="#higher-order-functions">Higher Order Functions</a></li>
+            <li><a href="#higher-order-functions">高阶函数</a></li>
           </ul>
         </li>
-        <li><a href="#types">Types</a>
+        <li><a href="#types">类型</a>
           <ul>
-            <li><a href="#type-inference">Type inference</a></li>
-            <li><a href="#type-construction">Type construction</a></li>
-            <li><a href="#recursive-type">Recursive type</a></li>
+            <li><a href="#type-inference">类型推断</a></li>
+            <li><a href="#type-construction">类型构造</a></li>
+            <li><a href="#recursive-type">递归类型</a></li>
             <li><a href="#trees">Trees</a></li>
           </ul>
         </li>
-        <li><a href="#infinite-structures">Infinite Structures</a></li>
+        <li><a href="#infinite-structures">无限结构</a></li>
       </ul>
     </li>
-    <li><a href="#hell-difficulty-part">Hell Difficulty Part</a>
+    <li><a href="#hell-difficulty-part">超难的地方</a>
       <ul>
-        <li><a href="#deal-with-io">Deal With IO</a></li>
-        <li><a href="#io-trick-explained">IO trick explained</a></li>
+        <li><a href="#deal-with-io">处理 IO</a></li>
+        <li><a href="#io-trick-explained">IO 手法解析</a></li>
         <li><a href="#monads">Monads</a>
           <ul>
-            <li><a href="#maybe-monad">Maybe is a monad</a></li>
-            <li><a href="#the-list-monad">The list monad</a></li>
+            <li><a href="#maybe-monad">Maybe 是 monad</a></li>
+            <li><a href="#the-list-monad">List monad</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#appendix">Appendix</a>
+    <li><a href="#appendix">附录</a>
       <ul>
-        <li><a href="#more-on-infinite-tree">More on Infinite Tree</a></li>
+        <li><a href="#more-on-infinite-tree">更多关于 Infinite Tree</a></li>
       </ul>
     </li>
   </ul>
@@ -183,9 +183,9 @@ You should see a link just below.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/00_hello_world.lhs" class="cut">01_basic/10_Introduction/<strong>00_hello_world.lhs</strong></a></p>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">介绍</h2>
 
-<h3 id="install">Install</h3>
+<h3 id="install">安装</h3>
 
 <p><img alt="Haskell logo" src="./Learn Haskell Fast and Hard_files/Haskell-logo.png"></p>
 
@@ -201,7 +201,7 @@ You should see a link just below.</p>
   <li><code>runhaskell</code>: Execute a program without compiling it. Convenient but very slow compared to compiled programs.</li>
 </ul>
 
-<h3 id="don-t-be-afraid">Don't be afraid</h3>
+<h3 id="don-t-be-afraid">别担心</h3>
 
 <p><img alt="The Scream" src="./Learn Haskell Fast and Hard_files/munch_TheScream.jpg"></p>
 
@@ -290,7 +290,7 @@ This means, <code>main</code> will cause side effects.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/20_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>20_very_basic.lhs</strong></a></p>
 
-<h3 id="very-basic-haskell">Very basic Haskell</h3>
+<h3 id="very-basic-haskell">基础的 Haskell</h3>
 
 <p><img alt="Picasso minimal owl" src="./Learn Haskell Fast and Hard_files/picasso_owl.jpg"></p>
 
@@ -636,14 +636,14 @@ Get back here if notation feels strange.</p>
 It is a meta notation, <code>⇔</code> does not exists in Haskell.
 I will also use <code>⇒</code> to show what is the return of an expression.</p>
 
-<h3 id="notations">Notations</h3>
+<h3 id="notations">记法</h3>
 
-<h5 id="arithmetic">Arithmetic</h5>
+<h5 id="arithmetic">算术</h5>
 
 <pre><code class="markdown">3 + 2 <span class="bullet">* 6 / 3 ⇔ 3 + ((2*</span>6)/3)
 </code></pre>
 
-<h5 id="logic">Logic</h5>
+<h5 id="logic">逻辑</h5>
 
 <pre><code class="python"><span class="built_in">True</span> || <span class="built_in">False</span> ⇒ <span class="built_in">True</span>
 <span class="built_in">True</span> &amp;&amp; <span class="built_in">False</span> ⇒ <span class="built_in">False</span>
@@ -724,7 +724,7 @@ fst (<span class="built_in">x</span>,<span class="built_in">y</span>,<span class
 snd (<span class="built_in">x</span>,<span class="built_in">y</span>,<span class="built_in">z</span>)     ⇒  ERROR: snd :: (a,b) -&gt; b
 </code></pre>
 
-<h5 id="deal-with-parentheses">Deal with parentheses</h5>
+<h5 id="deal-with-parentheses">处理圆括号</h5>
 
 <p>To remove some parentheses you can use two functions: <code>($)</code> and <code>(.)</code>.</p>
 
@@ -745,7 +745,7 @@ f $ g $ h <span class="keyword">x</span>     ⇔  f (g (h <span class="keyword">
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/20_Essential_Haskell/10a_Functions.lhs" class="cut">01_basic/20_Essential_Haskell/<strong>10a_Functions.lhs</strong></a></p>
 
-<h3 id="useful-notations-for-functions">Useful notations for functions</h3>
+<h3 id="useful-notations-for-functions">常用函数记法</h3>
 
 <p>Just a reminder:</p>
 
@@ -860,11 +860,11 @@ Like in Python, a bad indentation could break your code!</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/20_Essential_Haskell/10a_Functions.lhs" class="cut">01_basic/20_Essential_Haskell/<strong>10a_Functions.lhs</strong> </a></p>
 
-<h2 id="hard-part">Hard Part</h2>
+<h2 id="hard-part">难点</h2>
 
 <p>The hard part can now begin.</p>
 
-<h3 id="functional-style">Functional style</h3>
+<h3 id="functional-style">函数风格</h3>
 
 <p><img alt="Biomechanical Landscape by H.R. Giger" src="./Learn Haskell Fast and Hard_files/hr_giger_biomechanicallandscape_500.jpg"></p>
 
@@ -1002,7 +1002,7 @@ Ok, modules loaded: Main.
 6
 </pre>
 
-<p>Here is an example of execution<sup id="fnref:2"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:2" rel="footnote">2</a></sup>: </p>
+<p>Here is an example of execution<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>: </p>
 
 <pre>*Main&gt; evenSum [1..5]
 accumSum 0 [1,2,3,4,5]
@@ -1103,7 +1103,7 @@ This way our <code>accumSum</code> function won’t pollute the global namespace
 
 </div>
 <p>What is pattern matching? 
-Use values instead of general parameter names<sup id="fnref:021301"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:021301" rel="footnote">3</a></sup>.</p>
+Use values instead of general parameter names<sup id="fnref:021301"><a href="#fn:021301" rel="footnote">3</a></sup>.</p>
 
 <p>Instead of saying: <code>foo l = if l == [] then &lt;x&gt; else &lt;y&gt;</code>
 You simply state:  </p>
@@ -1197,7 +1197,7 @@ For example, instead of writing:</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/15_Functions.lhs" class="cut">02_Hard_Part/<strong>15_Functions.lhs</strong></a></p>
 
-<h4 id="higher-order-functions">Higher Order Functions</h4>
+<h4 id="higher-order-functions">高阶函数</h4>
 
 <p><img alt="Escher" src="./Learn Haskell Fast and Hard_files/escher_polygon.png"></p>
 
@@ -1382,7 +1382,7 @@ We want to get the sum of all even square of element of the list.</p>
 
 
 </div>
-<p>We just had to add another “transformation function”<sup id="fnref:0216"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:0216" rel="footnote">4</a></sup>.</p>
+<p>We just had to add another “transformation function”<sup id="fnref:0216"><a href="#fn:0216" rel="footnote">4</a></sup>.</p>
 
 <pre><code class="css"><span class="tag">map</span> (^2) <span class="attr_selector">[1,2,3,4]</span> ⇔ <span class="attr_selector">[1,4,9,16]</span>
 </code></pre>
@@ -1431,7 +1431,7 @@ essential aspect of Haskell: <em>Types</em>.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/16_Functions.lhs" class="cut">02_Hard_Part/<strong>16_Functions.lhs</strong> </a></p>
 
-<h3 id="types">Types</h3>
+<h3 id="types">类型</h3>
 
 <p><img alt="Dali, the madonna of port Lligat" src="./Learn Haskell Fast and Hard_files/salvador-dali-the-madonna-of-port-lligat.jpg"></p>
 
@@ -1453,7 +1453,7 @@ In Haskell, most bugs are caught during the compilation of your program.
 And the main reason is because of the type inference during compilation.
 It will be easy to detect where you used the wrong parameter at the wrong place for example.</p>
 
-<h4 id="type-inference">Type inference</h4>
+<h4 id="type-inference">类型推断</h4>
 
 <p>Static typing is generally essential to reach fast execution time.
 But most statically typed languages are bad at generalizing concepts.
@@ -1550,7 +1550,7 @@ Generally, in Haskell:</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/21_Types.lhs" class="cut">02_Hard_Part/<strong>21_Types.lhs</strong></a></p>
 
-<h4 id="type-construction">Type construction</h4>
+<h4 id="type-construction">类型构造</h4>
 
 <p>You can construct your own types.
 First you can use aliases or type synonyms.</p>
@@ -1658,7 +1658,7 @@ Furthermore you can use another order when setting values.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/23_Types.lhs" class="cut">02_Hard_Part/<strong>23_Types.lhs</strong></a></p>
 
-<h4 id="recursive-type">Recursive type</h4>
+<h4 id="recursive-type">递归类型</h4>
 
 <p>You already encountered a recursive type: lists.
 You can re-create lists, but with a more verbose syntax:</p>
@@ -2021,7 +2021,7 @@ And we can even make a tree containing a tree of trees!</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/40_Infinites_Structures.lhs" class="cut">02_Hard_Part/<strong>40_Infinites_Structures.lhs</strong></a></p>
 
-<h3 id="infinite-structures">Infinite Structures</h3>
+<h3 id="infinite-structures">无限结构</h3>
 
 <p><img alt="Escher" src="./Learn Haskell Fast and Hard_files/escher_infinite_lizards.jpg"></p>
 
@@ -2279,7 +2279,7 @@ search for functor and <code>fmap</code>.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/41_Infinites_Structures.lhs" class="cut">02_Hard_Part/<strong>41_Infinites_Structures.lhs</strong> </a></p>
 
-<h2 id="hell-difficulty-part">Hell Difficulty Part</h2>
+<h2 id="hell-difficulty-part">超难的地方</h2>
 
 <p>Congratulations for getting so far!
 Now, some of the really hardcore stuff can start.</p>
@@ -2301,7 +2301,7 @@ But they all be very rewarding.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/01_IO/01_progressive_io_example.lhs" class="cut">03_Hell/01_IO/<strong>01_progressive_io_example.lhs</strong></a></p>
 
-<h3 id="deal-with-io">Deal With IO</h3>
+<h3 id="deal-with-io">处理 IO</h3>
 
 <p><img alt="Magritte, Carte blanche" src="./Learn Haskell Fast and Hard_files/magritte_carte_blanche.jpg"></p>
 
@@ -2444,7 +2444,7 @@ Its definition is:</p>
 <p>This is a nice way to tell there was an error while trying to create/compute
 a value.
 The <code>maybeRead</code> function is a great example of this. 
-This is a function similar to the function <code>read</code><sup id="fnref:1"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:1" rel="footnote">5</a></sup>,
+This is a function similar to the function <code>read</code><sup id="fnref:1"><a href="#fn:1" rel="footnote">5</a></sup>,
 but if something goes wrong the returned value is <code>Nothing</code>.
 If the value is right, it returns <code>Just &lt;the value&gt;</code>.
 Don’t try to understand too much of this function. 
@@ -2607,7 +2607,7 @@ Read the next section if you are curious.</li>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/01_IO/03_progressive_io_example.lhs" class="cut">03_Hell/01_IO/<strong>03_progressive_io_example.lhs</strong> </a></p>
 
-<h3 id="io-trick-explained">IO trick explained</h3>
+<h3 id="io-trick-explained">IO 手法解析</h3>
 
 <p><img alt="Magritte, ceci n&#39;est pas une pipe" src="./Learn Haskell Fast and Hard_files/magritte_pipe.jpg"></p>
 
@@ -2694,10 +2694,10 @@ Its type is then something like:</p>
 
 <p>Not all functions may have access to this variable.
 Those which have access to this variable are impure.
-Functions to which the world variable isn’t provided are pure<sup id="fnref:032001"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:032001" rel="footnote">6</a></sup>.</p>
+Functions to which the world variable isn’t provided are pure<sup id="fnref:032001"><a href="#fn:032001" rel="footnote">6</a></sup>.</p>
 
 <p>Haskell considers the state of the world as an input variable to <code>main</code>.
-But the real type of main is closer to this one<sup id="fnref:032002"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:032002" rel="footnote">7</a></sup>:</p>
+But the real type of main is closer to this one<sup id="fnref:032002"><a href="#fn:032002" rel="footnote">7</a></sup>:</p>
 
 <pre><code class="haskell"><span class="title">main</span> :: <span class="label">World</span> -&gt; ((),<span class="label">World</span>)
 </code></pre>
@@ -3115,7 +3115,7 @@ m &gt;&gt;= (<span class="command">\x</span> -&gt; k x &gt;&gt;= h)  ==  (m &gt;
   </ul>
 </blockquote>
 
-<h4 id="maybe-monad">Maybe is a monad</h4>
+<h4 id="maybe-monad">Maybe 是 monad</h4>
 
 <p>There are a lot of different types that are instance of <code>Monad</code>.
 One of the easiest to describe is <code>Maybe</code>.
@@ -3253,7 +3253,7 @@ But now a cooler example, lists.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/02_Monads/13_Monads.lhs" class="cut">03_Hell/02_Monads/<strong>13_Monads.lhs</strong></a></p>
 
-<h4 id="the-list-monad">The list monad</h4>
+<h4 id="the-list-monad">List monad</h4>
 
 <p><img alt="Golconde de Magritte" src="./Learn Haskell Fast and Hard_files/golconde.jpg"></p>
 
@@ -3313,11 +3313,11 @@ In particular, monad are very useful for: </p>
 </ul>
 
 <p>If you have followed me until here, then you’ve done it! 
-You know monads<sup id="fnref:03021301"><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fn:03021301" rel="footnote">8</a></sup>!</p>
+You know monads<sup id="fnref:03021301"><a href="#fn:03021301" rel="footnote">8</a></sup>!</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/02_Monads/13_Monads.lhs" class="cut">03_Hell/02_Monads/<strong>13_Monads.lhs</strong> </a></p>
 
-<h2 id="appendix">Appendix</h2>
+<h2 id="appendix">附录</h2>
 
 <p>This section is not so much about learning Haskell.
 It is just here to discuss some details further.</p>
@@ -3325,9 +3325,9 @@ It is just here to discuss some details further.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/04_Appendice/01_More_on_infinite_trees/10_Infinite_Trees.lhs" class="cut">04_Appendice/01_More_on_infinite_trees/<strong>10_Infinite_Trees.lhs</strong></a></p>
 
-<h3 id="more-on-infinite-tree">More on Infinite Tree</h3>
+<h3 id="more-on-infinite-tree">更多关于 Infinite Tree</h3>
 
-<p>In the section <a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#infinite-structures">Infinite Structures</a> we saw some simple
+<p>In the section <a href="#infinite-structures">Infinite Structures</a> we saw some simple
 constructions.
 Unfortunately we removed two properties from our tree:</p>
 
@@ -3706,28 +3706,28 @@ Thank you man.</p>
 <hr><div class="footnotes">
   <ol>
     <li id="fn:0001">
-      <p>Even if most recent languages try to hide them, they are present.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:0001" rel="reference">↩</a></p>
+      <p>Even if most recent languages try to hide them, they are present.<a href="#fnref:0001" rel="reference">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>I know I’m cheating. But I will talk about non-strict later.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:2" rel="reference">↩</a></p>
+      <p>I know I’m cheating. But I will talk about non-strict later.<a href="#fnref:2" rel="reference">↩</a></p>
     </li>
     <li id="fn:021301">
-      <p>For the brave, a more complete explanation of pattern matching can be found <a href="http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html">here</a>.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:021301" rel="reference">↩</a></p>
+      <p>For the brave, a more complete explanation of pattern matching can be found <a href="http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html">here</a>.<a href="#fnref:021301" rel="reference">↩</a></p>
     </li>
     <li id="fn:0216">
-      <p>You should remark <code>squareEvenSum''</code> is more efficient that the two other versions. The order of <code>(.)</code> is important.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:0216" rel="reference">↩</a></p>
+      <p>You should remark <code>squareEvenSum''</code> is more efficient that the two other versions. The order of <code>(.)</code> is important.<a href="#fnref:0216" rel="reference">↩</a></p>
     </li>
     <li id="fn:1">
-      <p>Which itself is very similar to the javascript <code>eval</code> on a string containing JSON).<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:1" rel="reference">↩</a></p>
+      <p>Which itself is very similar to the javascript <code>eval</code> on a string containing JSON).<a href="#fnref:1" rel="reference">↩</a></p>
     </li>
     <li id="fn:032001">
-      <p>There are some <em>unsafe</em> exceptions to this rule. But you shouldn’t see such use on a real application except maybe for debugging purpose.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:032001" rel="reference">↩</a></p>
+      <p>There are some <em>unsafe</em> exceptions to this rule. But you shouldn’t see such use on a real application except maybe for debugging purpose.<a href="#fnref:032001" rel="reference">↩</a></p>
     </li>
     <li id="fn:032002">
-      <p>For the curious the real type is <code>data IO a = IO {unIO :: State# RealWorld -&gt; (# State# RealWorld, a #)}</code>. All the <code>#</code> as to do with optimisation and I swapped the fields in my example. But mostly, the idea is exactly the same.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:032002" rel="reference">↩</a></p>
+      <p>For the curious the real type is <code>data IO a = IO {unIO :: State# RealWorld -&gt; (# State# RealWorld, a #)}</code>. All the <code>#</code> as to do with optimisation and I swapped the fields in my example. But mostly, the idea is exactly the same.<a href="#fnref:032002" rel="reference">↩</a></p>
     </li>
     <li id="fn:03021301">
-      <p>Well, you’ll certainly need to practice a bit to get used to them and to understand when you can use them and create your own. But you already made a big step in this direction.<a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/#fnref:03021301" rel="reference">↩</a></p>
+      <p>Well, you’ll certainly need to practice a bit to get used to them and to understand when you can use them and create your own. But you already made a big step in this direction.<a href="#fnref:03021301" rel="reference">↩</a></p>
     </li>
   </ol>
 </div>
