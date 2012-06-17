@@ -101,79 +101,79 @@
 </div>
 <div class="intro">
 
-<p>I really believe all developer should learn Haskell.
-I don’t think all should be super Haskell ninjas,
-but at least, they should discover what Haskell has to offer.
-Learning Haskell open your mind.</p>
+<p>我坚信所有开发者的都该来学 Haskell.
+我不认为所有人应该成为 Haskell 的超级忍者,
+但至少, 他们能发现 Haskell 的存在提供些什么.
+学习 Haskell 打开你的思维.</p>
 
-<p>Mainstream languages share the same foundations:</p>
+<p>主流语言共通的基础:</p>
 
 <ul>
-  <li>variables</li>
-  <li>loops</li>
-  <li>pointers<sup id="fnref:0001"><a href="#fn:0001" rel="footnote">1</a></sup></li>
-  <li>data structures, objects and classes (for most)</li>
+  <li>变量</li>
+  <li>循环</li>
+  <li>指针<sup id="fnref:0001"><a href="#fn:0001" rel="footnote">1</a></sup></li>
+  <li>数据类型, 对象和类(对于大多数)</li>
 </ul>
 
-<p>Haskell is very different.
-This language uses a lot of concepts I had never heard about before.
-Many of those concepts will help you become a better programmer.</p>
+<p>Haskell 非常特别.
+这门语言应用了很多我从未听说的概念.
+其中很多会助你成为更好的程序员.</p>
 
-<p>But, learning Haskell can be hard.
-It was for me.
-In this article I try to provide what I lacked during my learning.</p>
+<p>然而, 学习 Haskell 可能很难.
+对我就这样.
+在这篇文章, 我尝试提供我学习过程中所认为缺少的.</p>
 
-<p>This article will certainly be hard to follow.
-This is on purpose.
-There is no shortcut to learning Haskell.
-It is hard and challenging. 
-But I believe this is a good thing.
-It is because it is hard that Haskell is interesting.</p>
+<p>这篇文章的进度会很难被跟上.
+这是有意为之的.
+世上没有学习 Haskell 的捷径.
+只有难题和挑战.
+但我相信这是一件好事.
+因为 Haskell 很难, 所以她会很有趣.</p>
 
-<p>The conventional method to learning Haskell is to read two books. 
-First <a href="http://learnyouahaskell.com/">“Learn You a Haskell”</a> and just after
+<p>学 Haskell 的常规办法是的看两本书.
+第一本 <a href="http://learnyouahaskell.com/">“Learn You a Haskell”</a> 接着是
 <a href="http://www.realworldhaskell.org/">“Real World Haskell”</a>.
-I also believe this is the right way to go.
-But, to learn what Haskell is all about, you’ll have to read them in detail.</p>
+我也相信这是正确的途径/
+但是, 为了学会所有 Haskell 索要表达的, 你需要阅读全部的细节.</p>
 
-<p>On the other hand, this article is a very brief and dense overview of all major aspects of Haskell.
-I also added some informations I lacked while I learned Haskell.</p>
+<p>同时, 本文对 Haskell 各个方面一个简短和浓缩的概览.
+我还加了我学习 Haskell 时我所缺少的资源.
 
-<p>The article contains five parts:</p>
+<p>本文包括五个部分:</p>
 
 <ul>
-  <li>Introduction: a short example to show Haskell can be friendly.</li>
-  <li>Basic Haskell: Haskell syntax, and some essential notions.</li>
-  <li>Hard Difficulty Part:
+  <li>介绍: 一个简短的例子来表明 Haskell 的友好性.</li>
+  <li>基础的 Haskell: Haskell 语法, 和一些必需的记法.</li>
+  <li>难点:
     <ul>
-      <li>Functional style; a progressive example, from imperative to functional style</li>
-      <li>Types; types and a standard binary tree example</li>
-      <li>Infinite Structure; manipulate an infinite binary tree!</li>
+      <li>函数风格; 一个渐进的例子, 从命令式到函数式风格</li>
+      <li>类型; 类型和标准 binary tree 的例子</li>
+      <li>无穷类型; 操作一个 infinite binary tree!</li>
     </ul>
   </li>
-  <li>Hell Difficulty Part:
+  <li>超难的地方
     <ul>
-      <li>Deal with IO; A very minimal example</li>
-      <li>IO trick explained; the hidden detail I lacked to understand IO</li>
-      <li>Monads; incredible how we can generalize</li>
+      <li>处理 IO; 一个很迷你的例子</li>
+      <li>IO 手法解析; 我理解 IO 所缺失的隐藏细节</li>
+      <li>Monads; 难以置信我们能怎样生成</li>
     </ul>
   </li>
-  <li>Appendix:
+  <li>附录:
     <ul>
-      <li>More on infinite tree; a more math oriented discussion about infinite trees</li>
+      <li>更多关于 infinite tree; 关于 infinite trees 更数学化的讨论</li>
     </ul>
   </li>
 </ul>
 
 <blockquote>
-  <p>Note: Each time you’ll see a separator with a filename ending in <code>.lhs</code>, 
-you could click the filename to get this file. 
-If you save the file as <code>filename.lhs</code>, you can run it with </p>
+  <p>注: 每次你都会看到一个文件后缀为 <code>.lhs</code> 的分隔,
+你可以点击文件名下载这些文件.
+如果你把文件存为<code>filename.lhs</code>, 你可以运行之 </p>
   <pre>runhaskell filename.lhs
 </pre>
 
-  <p>Some might not work, but most will.
-You should see a link just below.</p>
+  <p>某些大概不能运行, 但绝大多数该可以.
+你应该能看到这下面有个链接.</p>
 </blockquote>
 
 
