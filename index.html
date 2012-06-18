@@ -283,7 +283,6 @@ int main (int argc, char **argv) <span class="special">{</span>
 <code>main</code> 的类型是 <code>IO ()</code>.
 意味着, <code>main</code> 将引起副作用.</p>
 
-<p>Just remember that Haskell can look a lot like mainstream imperative languages.</p>
 <p>反正记住 Haskell 可以更像主流命令式语言.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/10_hello_you.lhs" class="cut">01_basic/10_Introduction/<strong>10_hello_you.lhs</strong> </a></p>
@@ -295,48 +294,49 @@ int main (int argc, char **argv) <span class="special">{</span>
 
 <p><img alt="Picasso minimal owl" src="./Learn Haskell Fast and Hard_files/picasso_owl.jpg"></p>
 
-<p>Before continuing you need to be warned about some essential properties of Haskell.</p>
+<p>继续文章之前你需要注意 Haskell 一些本质的属性.</p>
 
-<p><em>Functional</em></p>
+<p><em>函数式</em></p>
 
-<p>Haskell is a functional language.
-If you have an imperative language background, you’ll have to learn a lot of new things.
-Hopefully many of these new concepts will help you to program even in imperative languages.</p>
+<p>Haskell 是一门函数式语言.
+如果你有命令式语言背景, 那你会有很多需要学的.
+希望其中很多心概念甚至能在命令式编程里帮到你.
 
-<p><em>Smart Static Typing</em></p>
+<p><em>自动静态类型</em></p>
 
-<p>Instead of being in your way like in <code>C</code>, <code>C++</code> or <code>Java</code>, the type system is here to help you.</p>
+<p>不像<code>C</code>, <code>C++</code> or <code>Java</code>里那个样子, 类型系统这里使用来帮助你的.</p>
 
-<p><em>Purity</em></p>
+<p><em>纯</em></p>
 
-<p>Generally your functions won’t modify anything in the outside world.
-This means, it can’t modify the value of a variable, can’t get user input, can’t write on the screen, can’t launch a missile.
-On the other hand, parallelism will be very easy to achieve.
-Haskell makes it clear where effects occur and where you are pure.
-Also, it will be far easier to reason about your program.
-Most bugs will be prevented in the pure parts of your program.</p>
+<p>一般来说你的函数不会修改任何外部的内容.
+就是用, 她无法修改变量的值, 不能获取用户输入, 不能读取屏幕字符, 不能发射火箭.
+另一面, 并行计算是很容易实现的.
+Haskell 理清了哪里副作用将出现以及哪里你是纯的.
+同时, 难懂你的程序将会容易非常多.
+纯的部分程序很多 bug 都被预防掉了.
 
-<p>Furthermore pure functions follow a fundamental law in Haskell:</p>
+<p>而且纯函数遵循着 Haskell 的基本定律.
 
 <blockquote>
-  <p>Applying a function with the same parameters always returns the same value.</p>
+  <p>用相同的参数调用相同的函数往往有相同的返回值.</p>
 </blockquote>
 
-<p><em>Laziness</em></p>
+<p><em>惰性</em></p>
 
-<p>Laziness by default is a very uncommon language design.
-By default, Haskell evaluates something only when it is needed.
-In consequence, it provides a very elegant way to manipulate infinite structures for example.</p>
+<p>默认的惰性是种很不寻常的语言设计.
+默认情况下, Haskell 只有在必要是才进行求值.
+一种结果是, 她提供给常优雅的方式来处理无限结构.
 
-<p>A last warning on how you should read Haskell code.
-For me, it is like reading scientific papers.
-Some parts are very clear, but when you see a formula, just focus and read slower.
-Also, while learning Haskell, it <em>really</em> doesn’t matter much if you don’t understand syntax details.
-If you meet a <code>&gt;&gt;=</code>, <code>&lt;$&gt;</code>, <code>&lt;-</code> or any other weird symbol, just ignore them and follows the flow of the code.</p>
+<p>最后一个关于你该怎样阅读 Haskell 代码的注意点.
+对我, 那就像阅读科学文献.
+一些部分很清晰, 但等你看到个公式, 就要集中精神慢慢读.
+同时, 学习 Haskell, 你不懂语法的细节真的不很重要.
 
-<h4 id="function-declaration">Function declaration</h4>
+如果你遇到 <code>&gt;&gt;=</code>, <code>&lt;$&gt;</code>, <code>&lt;-</code> 或者其他古怪的符号, 干脆跳过去看代码的流程.</p>
 
-<p>You might be used to declare functions like this:</p>
+<h4 id="function-declaration">函数声明</h4>
+
+<p>你大概习惯这样声明函数</p>
 
 <p>In <code>C</code>:</p>
 
@@ -371,24 +371,25 @@ If you meet a <code>&gt;&gt;=</code>, <code>&lt;$&gt;</code>, <code>&lt;-</code>
     <span class="list">(<span class="title">+</span><span class="body"> <span class="list">(<span class="title">*</span><span class="body"> x x</span>)</span> <span class="list">(<span class="title">*</span><span class="body"> y y</span>)</span></span>)</span></span>)</span>
 </code></pre>
 
-<p>Finally, the Haskell way is:</p>
+<p>最后, Haskell 的方式:</p>
 
 <pre><code class="haskell"><span class="title">f</span> x y = x*x + y*y
 </code></pre>
 
-<p>Very clean. No parenthesis, no <code>def</code>.</p>
+<p>很干净. 没括号, 没 <code>def</code>.</p>
 
-<p>Don’t forget, Haskell uses functions and types a lot.
-It is thus very easy to define them.
-The syntax was particularly well thought for these objects.</p>
+<p>记住, Haskell 经常用到函数和类型.
+就这样定义它们非常简单.
+语法为了这些对象专门考虑的.
 
-<h4 id="a-type-example">A Type Example</h4>
+<h4 id="a-type-example">类型的例子</h4>
 
-<p>The usual way is to declare the type of your function.
-This is not mandatory.
-The compiler is smart enough to discover it for you.</p>
+<p>通常的办法是声明你函数的类型.
+这不是非有不可的.
+编译器足够聪明去替你给出类型.</p>
 
 <p>Let’s play a little.</p>
+<p>我们写写看.</p>
 
 <div class="codehighlight">
 
@@ -411,7 +412,7 @@ The compiler is smart enough to discover it for you.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/21_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>21_very_basic.lhs</strong></a></p>
 
-<p>Now try</p>
+<p>再试试</p>
 
 <div class="codehighlight">
 
@@ -424,7 +425,7 @@ The compiler is smart enough to discover it for you.</p>
 
 
 </div>
-<p>You get this error:</p>
+<p>你看到这个报错:</p>
 
 <pre><code class="vbscript"><span class="number">21</span>_very_basic.lhs:<span class="number">6</span>:<span class="number">23</span>:
     No instance <span class="keyword">for</span> (Fractional <span class="built_in">Int</span>)
@@ -435,16 +436,16 @@ The compiler is smart enough to discover it for you.</p>
     <span class="keyword">In</span> the expression: print (f <span class="number">2.3</span> <span class="number">4.2</span>)
 </code></pre>
 
-<p>The problem: <code>4.2</code> isn’t an Int.</p>
+<p>问题: <code>4.2</code> 不属于 Int.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/21_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>21_very_basic.lhs</strong> </a></p>
 
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/22_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>22_very_basic.lhs</strong></a></p>
 
-<p>The solution, 
-don’t declare the type for <code>f</code>.
-Haskell will infer the most general type for us:</p>
+<p>解决方案,
+别声明 <code>f</code> 的类型.
+Haskell 会为我们推断出尽可能通用的类型:</p>
 
 <div class="codehighlight">
 
@@ -456,12 +457,12 @@ Haskell will infer the most general type for us:</p>
 
 
 </div>
-<p>It works! 
-Great, we don’t have to declare a new function for every single type.
-For example, in <code>C</code>, you’ll have to declare a function for <code>int</code>, for <code>float</code>, for <code>long</code>, for <code>double</code>, etc…</p>
+<p>运行成功.
+好, 我们不需要声明新函数的每个类型.
+比如, 用 <code>C</code>, 你得声明函数为<code>int</code>, 为 <code>float</code>, 为 <code>long</code>, 为 <code>double</code>, 等等...</p>
 
-<p>But, what type should we declare?
-To discover the type Haskell has found for us, just launch ghci:</p>
+<p>但是, 我们该怎么去声明类型?
+要看 Haskell 推出来的类型, 得运行 ghci:</p>
 
 <pre><span class="low">
 %</span> ghci<span class="low"><code>
@@ -475,80 +476,80 @@ Prelude&gt;</code></span> let f x y = x*x + y*y
 <code>f :: Num a =&gt; a -&gt; a -&gt; a</code>
 </pre>
 
-<p>Uh? What is this strange type?</p>
+<p>呃? 这个古怪的类型什么意思?</p>
 
 <pre><code class="perl">Num <span class="string">a =&gt;</span> a -&gt; a -&gt; a
 </code></pre>
 
-<p>First, let’s focus on the right part <code>a -&gt; a -&gt; a</code>.
-To understand it, just look at a list of progressive examples: </p>
+<p>首先, 仔细看右边的部分 <code>a -&gt; a -&gt; a</code>.
+为了理解, 来看一列步进的例子:</p>
 
 <table>
   <tbody>
     <tr>
-      <td>The&nbsp;written&nbsp;type</td>
-      <td>Its meaning</td>
+      <td>类型的写法</td>
+      <td>意义</td>
     </tr>
     <tr>
       <td><code>Int</code></td>
-      <td>the type <code>Int</code></td>
+      <td><code>Int</code>类型</td>
     </tr>
     <tr>
       <td><code>Int -&gt; Int</code></td>
-      <td>the type function from <code>Int</code> to <code>Int</code></td>
+      <td>类型由 <code>Int</code> 到 <code>Int</code> 的函数 </td>
     </tr>
     <tr>
       <td><code>Float -&gt; Int</code></td>
-      <td>the type function from <code>Float</code> to <code>Int</code></td>
+      <td>类型由 <code>Float</code> 到 <code>Int</code> 的函数</td>
     </tr>
     <tr>
       <td><code>a -&gt; Int</code></td>
-      <td>the type function from any type to <code>Int</code></td>
+      <td>任意类型到 <code>Int</code> 的函数</td>
     </tr>
     <tr>
       <td><code>a -&gt; a</code></td>
-      <td>the type function from any type <code>a</code> to the same type <code>a</code></td>
+      <td>类型由某个 <code>a</code> 到同个 <code>a</code> 的函数 </td>
     </tr>
     <tr>
       <td><code>a -&gt; a -&gt; a</code></td>
-      <td>the type function of two arguments of any type <code>a</code> to the same type <code>a</code></td>
+      <td>接收两个参数类型 <code>a</code> 返回 <code>a</code> 类型的函数</td>
     </tr>
   </tbody>
 </table>
 
-<p>In the type <code>a -&gt; a -&gt; a</code>, the letter <code>a</code> is a <em>type variable</em>. 
-It means <code>f</code> is a function with two arguments and both arguments and the result have the same type.
-The type variable <code>a</code> could take many different type value.
-For example <code>Int</code>, <code>Integer</code>, <code>Float</code>…</p>
+<p>在类型 <code>a -&gt; a -&gt; a</code> 里, 字母 <code>a</code> 是个 <em>类型变量</em>. 
+意思是<code>f</code> 是有两个参数的函数而且两个参数和返回值是相同的类型.
+类型变量 <code>a</code> 能表示多种类型.
+比如 <code>Int</code>, <code>Integer</code>, <code>Float</code>...</p>
 
-<p>So instead of having a forced type like in <code>C</code> with declaring the function for <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, etc… 
-We declare only one function like in a dynamically typed language.</p>
+<p>所以不像强制类型的 <code>C</code> 声明函数为 <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, 等等...
+我们定义函数就像是动态语言.</p>
 
-<p>Generally <code>a</code> can be any type. 
-For example a <code>String</code>, an <code>Int</code>, but also more complex types, like <code>Trees</code>, other functions, etc…
-But here our type is prefixed with <code>Num a =&gt; </code>. </p>
+<p>通常 <code>a</code> 能是任意类型.
+比如 <code>String</code>, <code>Int</code>, 也有更复杂的类型, 像 <code>Trees</code>, 其他的函数, 等等...
+不过这里我们的类型加了前缀 <code>Num a =&gt; </code>. </p>
 
-<p><code>Num</code> is a <em>type class</em>.
-A type class can be understood as a set of types.
-<code>Num</code> contains only types which behave like numbers.
-More precisely, <code>Num</code> is class containing types who implement a specific list of functions, and in particular <code>(+)</code> and <code>(*)</code>.</p>
+<p><code>Num</code> 是个 <em>类型类</em>.
+类型类可以理解为一些类型的集合.
+<code>Num</code> 仅包含表现为数字的几个类型.
+更简单说, <code>Num</code> 类中的类型能运行一套特定的函数, 尤其是 <code>(+)</code> 和 <code>(*)</code>.</p>
 
-<p>Type classes are a very powerful language construct.
-We can do some incredibly powerful stuff with this.
-More on this later.</p>
+<p>类型类是很强大的语言构建.
+这能被用来做一些特别强大的事.
+后面会再细说.</p>
 
-<p>Finally, <code>Num a =&gt; a -&gt; a -&gt; a</code> means:</p>
+<p>最后, <code>Num a =&gt; a -&gt; a -&gt; a</code> 是说:</p>
 
-<p>Let <code>a</code> be a type belonging to the <code>Num</code> type class.
-This is a function from type <code>a</code> to (<code>a -&gt; a</code>).</p>
+<p>用 <code>a</code> 表示一个属于 <code>Num</code> 类型类的类型.
+这是个类型由 <code>a</code> 到 (<code>a -&gt; a</code>) 的函数.</p>
 
-<p>Yes, strange. 
-In fact, in Haskell no function really has two arguments.
-Instead all functions have only one argument.
-But we will note that taking two arguments is equivalent to taking one argument and returning a function taking the second argument as parameter.</p>
+<p>是的, 怪.
+事实上 Haskell 没一个函数真有两个参数.
+反而所有函数都只有一个参数.
+但我们会发现接收两个参数等同于接收一个参数再返回一个来接收第二个参数的函数.</p>
 
-<p>More precisely <code>f 3 4</code> is equivalent to <code>(f 3) 4</code>. 
-Note <code>f 3</code> is a function:</p>
+<p>更直白地 <code>f 3 4</code> 等于是 <code>(f 3) 4</code>. 
+注意 <code>f 3</code> 是个函数:</p>
 
 <pre><code class="perl">f :: Num a :: a -&gt; a -&gt; a
 
@@ -558,25 +559,25 @@ g = f <span class="number">3</span>
 g <span class="keyword">y</span> ⇔ <span class="number">3</span><span class="variable">*3</span> + <span class="keyword">y</span><span class="variable">*y</span>
 </code></pre>
 
-<p>Another notation exists for functions. 
-The lambda notation allows us to create functions without assigning them a name.
-We call them anonymous function.
-We could have written:</p>
+<p>函数有另一个记法.
+lambda 记法让我们能创建函数而不带函数名.
+称为匿名函数.
+像这样写:</p>
 
 <pre><code class="tex">g = <span class="command">\y</span> -&gt; 3*3 + y*y
 </code></pre>
 
-<p>The <code>\</code> is used because it looks like <code>λ</code> and is ASCII.</p>
+<p>用 <code>\</code> 是因为它像 <code>λ</code> 而且属于 ASCII.</p>
 
-<p>If you are not used to functional programming your brain should start to heat up.
-It is time to make a real application.</p>
+<p>如果你没习惯函数式编程, 你的脑子该开始热了.
+可以去做真实应用了.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/22_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>22_very_basic.lhs</strong> </a></p>
 
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/23_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>23_very_basic.lhs</strong></a></p>
 
-<p>But just before that, we should verify the type system works as expected:</p>
+<p>但那之前, 我们要确认下类型系统能像预期那样运行:</p>
 
 <div class="codehighlight">
 
@@ -589,15 +590,15 @@ It is time to make a real application.</p>
 
 
 </div>
-<p>It works, because, <code>3</code> is a valid representation both for Fractional numbers like Float and for Integer.
-As <code>2.4</code> is a Fractional number, <code>3</code> is then interpreted as being also a Fractional number.</p>
+<p>运行正常, 因为, <code>3</code> 同时是 Float 和 Integer 合法的分数写法.
+因为 <code>2.4</code> 是分数, <code>3</code> 也就作为分数解释.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/23_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>23_very_basic.lhs</strong> </a></p>
 
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/24_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>24_very_basic.lhs</strong></a></p>
 
-<p>If we force our function to work with different types, it will fail:</p>
+<p>如果强制让函数接收两个不同的类型, 运行会出错:</p>
 
 <div class="codehighlight">
 
@@ -614,11 +615,10 @@ As <code>2.4</code> is a Fractional number, <code>3</code> is then interpreted a
 
 
 </div>
-<p>The compiler complains. 
-The two parameters must have the same type.</p>
+<p>编译器报错.
+两个参数必须类型一致.</p>
 
-<p>If you believe it is a bad idea, and the compiler should make the transformation 
-from a type to another for you, you should really watch this great (and funny) video:
+<p>如果你坚持这个想法不好, 那么就让编译器帮你从一个类型转到另一个, 你很应该看这个不错(也有趣)的视频:
 <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/24_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>24_very_basic.lhs</strong> </a></p>
