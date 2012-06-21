@@ -623,19 +623,19 @@ lambda 记法让我们能创建函数而不带函数名.
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/01_basic/10_Introduction/24_very_basic.lhs" class="cut">01_basic/10_Introduction/<strong>24_very_basic.lhs</strong> </a></p>
 
-<h2 id="essential-haskell">Essential Haskell</h2>
+<h2 id="essential-haskell">基础的 Haskell</h2>
 
 <p><img alt="Kandinsky Gugg" src="./Learn Haskell Fast and Hard_files/kandinsky_gugg.jpg"></p>
 
-<p>I suggest you to skim this part. 
-Think of it like a reference.
-Haskell has a lot of features. 
-Many informations are missing here.
-Get back here if notation feels strange.</p>
+<p>我建议你这部分只是浏览.
+当作一份手册.
+Haskell 有大量特性.
+很多信息这里没有给出.
+看起费解的记法了可以回来看.</p>
 
-<p>I use the <code>⇔</code> symbol to state that two expression are equivalent.
-It is a meta notation, <code>⇔</code> does not exists in Haskell.
-I will also use <code>⇒</code> to show what is the return of an expression.</p>
+<p>我用 <code>⇔</code> 符号标示两个表达式等价.
+这是个元符号, <code>⇔</code> 不属于 Haskell 语法.
+我也会用 <code>⇒</code> 标示 Haskell 表达式的返回值.</p>
 
 <h3 id="notations">记法</h3>
 
@@ -658,15 +658,15 @@ I will also use <code>⇒</code> to show what is the return of an expression.</p
 <span class="keyword">x</span><span class="variable">**</span><span class="keyword">y</span>    <span class="keyword">for</span> <span class="keyword">y</span> any kind of number (Float <span class="keyword">for</span> example)
 </code></pre>
 
-<p><code>Integer</code> have no limit except the capacity of your machine:</p>
+<p><code>Integer</code> 没有上限, 而你的设备会到极限:</p>
 
 <pre><code class="parser3"><span class="number">4</span><span class="keyword">^103</span>   
 <span class="number">102844034832575377634685573909834406561420991602098741459288064</span>
 </code></pre>
 
-<p>Yeah!
-And also rational numbers FTW!
-But you need to import the module <code>Data.Ratio</code>:</p>
+<p>对!
+还有分数 FTW!
+但你需要 import 一个模块 <code>Data.Ratio</code>:</p>
 
 <pre><code class="avrasm">$ ghci
 ....
@@ -692,7 +692,7 @@ Data<span class="preprocessor">.Ratio</span>&gt; (<span class="number">11</span>
 
 <h5 id="strings">Strings</h5>
 
-<p>In Haskell strings are list of <code>Char</code>.</p>
+<p>Haskell 里 strings 是 <code>Char</code> 组成的 list.</p>
 
 <pre><code class="objectivec"><span class="string">'a'</span> :: Char
 <span class="string">"a"</span> :: [Char]
@@ -702,16 +702,16 @@ Data<span class="preprocessor">.Ratio</span>&gt; (<span class="number">11</span>
 </code></pre>
 
 <blockquote>
-  <p><em>Remark</em>:
-In real code you shouldn’t use list of char to represent text.
-You should mostly use <code>Data.Text</code> instead.
-If you want to represent stream of ASCII char, you should use <code>Data.ByteString</code>.</p>
+  <p><em>注意</em>:
+实际编写代码是你不应该用 char 的 list 来表示文本.
+大多数情况你应该用 <code>Data.Text</code>.
+如果你想像是 ASCII char 的文本流, 你该用 <code>Data.ByteString</code>.</p>
 </blockquote>
 
 <h5 id="tuples">Tuples</h5>
 
-<p>The type of couple is <code>(a,b)</code>. 
-Elements in a tuple can have different type.</p>
+<p>两个元素的 tuple 类型为 <code>(a,b)</code>. 
+tuple 允许元素属于不同类型.</p>
 
 <pre><code class="avrasm">-- All these tuple are valid
 (<span class="number">2</span>,<span class="string">"foo"</span>)
@@ -727,7 +727,7 @@ snd (<span class="built_in">x</span>,<span class="built_in">y</span>,<span class
 
 <h5 id="deal-with-parentheses">处理圆括号</h5>
 
-<p>To remove some parentheses you can use two functions: <code>($)</code> and <code>(.)</code>.</p>
+<p>可以用两个函数还下一部分括号: <code>($)</code> 和 <code>(.)</code>.</p>
 
 <pre><code class="perl">-- By default:
 f g h <span class="keyword">x</span>         ⇔  (((f g) h) <span class="keyword">x</span>)
@@ -748,7 +748,7 @@ f $ g $ h <span class="keyword">x</span>     ⇔  f (g (h <span class="keyword">
 
 <h3 id="useful-notations-for-functions">常用函数记法</h3>
 
-<p>Just a reminder:</p>
+<p>留意下:</p>
 
 <pre><code class="lua">x :: Int            ⇔ x is of <span class="built_in">type</span> Int
 x :: a              ⇔ x can be of any <span class="built_in">type</span>
@@ -759,11 +759,14 @@ f :: a -&gt; b         ⇔ f is a <span class="function"><span class="keyword">f
 f :: (a -&gt; b) -&gt; c  ⇔ f is a <span class="function"><span class="keyword">function</span> <span class="title">from</span> <span class="params">(a→b)</span></span> to c
 </code></pre>
 
-<p>Defining the type of a function before its declaration isn’t mandatory.
+<p>在函数定义前声明其类型不是强制性的.
+Haskell 会自行推断出最宽泛的类型.
+Defining the type of a function before its declaration isn’t mandatory.
 Haskell infers the most general type for you.
-But it is considered a good practice to do so.</p>
+But it is considered a good practice to do so.
+但声明类型是一个好的实践.</p>
 
-<p><em>Infix notation</em></p>
+<p><em>中缀表示法</em></p>
 
 <div class="codehighlight">
 
@@ -774,9 +777,9 @@ But it is considered a good practice to do so.</p>
 
 
 </div>
-<p>Note <code>^</code> use infix notation. 
-For each infix operator there its associated prefix notation.
-You just have to put it inside parenthesis.</p>
+<p>注意 <code>^</code> 用了中缀表示法. 
+每个中缀表示法有对应的前缀表示法.
+只要加上括号.</p>
 
 <div class="codehighlight">
 
@@ -788,8 +791,8 @@ You just have to put it inside parenthesis.</p>
 
 
 </div>
-<p>We can remove <code>x</code> in the left and right side!
-It’s called η-reduction.</p>
+<p>两边的 <code>x</code> 可以约掉.
+这叫做 η-reduction.</p>
 
 <div class="codehighlight">
 
@@ -799,16 +802,16 @@ It’s called η-reduction.</p>
 
 
 </div>
-<p>Note we can declare function with <code>'</code> in their name.
+<p>注意我们可以定义含有 <code>'</code> 的函数名.
 Here:</p>
 
 <blockquote>
   <p><code>square</code> ⇔  <code>square'</code> ⇔ <code>square''</code> ⇔ <code>square '''</code></p>
 </blockquote>
 
-<p><em>Tests</em></p>
+<p><em>判别</em></p>
 
-<p>An implementation of the absolute function.</p>
+<p>absolute 函数的一个实现.</p>
 
 <div class="codehighlight">
 
@@ -819,10 +822,10 @@ Here:</p>
 
 
 </div>
-<p>Note: the <code>if .. then .. else</code> Haskell notation is more like the
-<code>¤?¤:¤</code> C operator. You cannot forget the <code>else</code>.</p>
+<p>注意: Haskell 表达式 <code>if .. then .. else</code> 很像
+C 语言操作符 <code>¤?¤:¤</code>. 不能遗漏后面的 <code>else</code>.</p>
 
-<p>Another equivalent version:</p>
+<p>另一个等价的版本:</p>
 
 <div class="codehighlight">
 
@@ -835,8 +838,8 @@ Here:</p>
 
 </div>
 <blockquote>
-  <p>Notation warning: indentation is <em>important</em> in Haskell.
-Like in Python, a bad indentation could break your code!</p>
+  <p>关于表示法的警告: Haskell 里缩进<em>很重要</em>.
+好比 Python, 出错的缩进会破坏代码.</p>
 </blockquote>
 
 <div style="display:none">
@@ -863,28 +866,28 @@ Like in Python, a bad indentation could break your code!</p>
 
 <h2 id="hard-part">难点</h2>
 
-<p>The hard part can now begin.</p>
+<p>现在开始讲难点.</p>
 
 <h3 id="functional-style">函数风格</h3>
 
 <p><img alt="Biomechanical Landscape by H.R. Giger" src="./Learn Haskell Fast and Hard_files/hr_giger_biomechanicallandscape_500.jpg"></p>
 
-<p>In this section, I will give a short example of the impressive refactoring ability provided by Haskell.
-We will select a problem and solve it using a standard imperative way.
-Then I will make the code evolve.
-The end result will be both more elegant and easier to adapt. </p>
+<p>这一章, 我会给个关于 Haskell 令人印象深刻的重构能力的小例子.
+我们会选个问题然后用标准的命令式办法去解决掉.
+然后我会让代码演进.
+最终结果会更优雅更容易接受.</p>
 
-<p>Let’s solve the following problem:</p>
+<p>来解决以下问题:</p>
 
 <blockquote>
-  <p>Given a list of integers, return the sum of the even numbers in the list.</p>
+  <p>给定 integer 的 list, 返回 list 中偶数的和.</p>
 
-  <p>example:
+  <p>例如:
 <code>[1,2,3,4,5] ⇒  2 + 4 ⇒  6</code></p>
 </blockquote>
 
-<p>To show differences between the functional and imperative approach,
-I’ll start by providing an imperative solution (in Javascript):</p>
+<p>为展示函数式和命令式方案的不同,
+我开始会提供一个命令式的方案 (JavaScript):</p>
 
 <pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">evenSum</span><span class="params">(list)</span> {</span>
     <span class="keyword">var</span> result = <span class="number">0</span>;
@@ -897,18 +900,18 @@ I’ll start by providing an imperative solution (in Javascript):</p>
 }
 </code></pre>
 
-<p>But, in Haskell we don’t have variables, nor for loop.
-One solution to achieve the same result without loops is to use recursion.</p>
+<p>但 Haskell 里没有变量, 也没循环.
+一个不用循环而完成相同结果的解法是用递归.</p>
 
 <blockquote>
-  <p><em>Remark</em>:<br>
-Recursion is generally perceived as slow in imperative languages.
-But it is generally not the case in functional programming.
-Most of the time Haskell will handle recursive functions efficiently.</p>
+  <p><em>注意</em>:<br>
+在命令式语言里递归通常被认为缓慢.
+但在函数式编程里通常不是那种状况.
+大多数情况下 Haskell 会把递归函数处理得很高效</p>
 </blockquote>
 
-<p>Here is a <code>C</code> version of the recursive function.
-Note that for simplicity, I assume the int list ends with the first <code>0</code> value.</p>
+<p>这是个 <code>C</code> 版本的递归函数.
+注意简单起见, 我设定第一个 <code>0</code> 值表示 int list 的结尾.</p>
 
 <pre><code class="c perl"><span class="keyword">int</span> evenSum(<span class="keyword">int</span> <span class="variable">*list</span>) {
     <span class="keyword">return</span> accumSum(<span class="number">0</span>,list);
@@ -931,29 +934,30 @@ Note that for simplicity, I assume the int list ends with the first <code>0</cod
 }
 </code></pre>
 
-<p>Keep this code in mind. We will translate it into Haskell.
-But before, I need to introduce three simple but useful functions we will use:</p>
+<p>
+考虑下这段代码. 我们会把它转成 Haskell.
+但这之前, 我要介绍下我们会用到的三个简单却使用的函数:</p>
 
 <pre><code class="haskell"><span class="title">even</span> :: <span class="label">Integral</span> a =&gt; a -&gt; <span class="label">Bool</span>
 <span class="title">head</span> :: [a] -&gt; a
 <span class="title">tail</span> :: [a] -&gt; [a]
 </code></pre>
 
-<p><code>even</code> verifies if a number is even.</p>
+<p><code>even</code> 验证数字是否偶数.</p>
 
 <pre><code class="haskell"><span class="title">even</span> :: <span class="label">Integral</span> a =&gt; a -&gt; <span class="label">Bool</span>
 <span class="title">even</span> <span class="number">3</span>  ⇒ <span class="label">False</span>
 <span class="title">even</span> <span class="number">2</span>  ⇒ <span class="label">True</span>
 </code></pre>
 
-<p><code>head</code> returns the first element of a list:</p>
+<p><code>head</code> 返回 list 第一个元素:</p>
 
 <pre><code class="haskell"><span class="title">head</span> :: [a] -&gt; a
 <span class="title">head</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] ⇒ <span class="number">1</span>
 <span class="title">head</span> []      ⇒ <span class="label">ERROR</span>
 </code></pre>
 
-<p><code>tail</code> returns all elements of a list, except the first:</p>
+<p><code>tail</code> 返回第一个元素以外所有元素:</p>
 
 <pre><code class="haskell"><span class="title">tail</span> :: [a] -&gt; [a]
 <span class="title">tail</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] ⇒ [<span class="number">2</span>,<span class="number">3</span>]
@@ -961,14 +965,15 @@ But before, I need to introduce three simple but useful functions we will use:</
 <span class="title">tail</span> []      ⇒ <span class="label">ERROR</span>
 </code></pre>
 
-<p>Note that for any non empty list <code>l</code>,
+<p>记下, 对任一非空 list <code>l</code>,
 <code>l ⇔ (head l):(tail l)</code></p>
 
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/11_Functions.lhs" class="cut">02_Hard_Part/<strong>11_Functions.lhs</strong></a></p>
 
-<p>The first Haskell solution.
-The function <code>evenSum</code> returns the sum of all even numbers in a list:</p>
+<p>Haskell 第一个解法.
+The first Haskell solution.
+函数 <code>evenSum</code> 返回列表里所有偶数的和:</p>
 
 <div class="codehighlight">
 
@@ -989,7 +994,7 @@ The function <code>evenSum</code> returns the sum of all even numbers in a list:
 
 
 </div>
-<p>To test a function you can use <code>ghci</code>:</p>
+<p>对函数的测试可以用 <code>ghci</code>:</p>
 
 <pre>% ghci
 <span class="low">GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
@@ -1003,7 +1008,7 @@ Ok, modules loaded: Main.
 6
 </pre>
 
-<p>Here is an example of execution<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>: </p>
+<p>一个执行的例子<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>: </p>
 
 <pre>*Main&gt; evenSum [1..5]
 accumSum 0 [1,2,3,4,5]
@@ -1023,9 +1028,9 @@ accumSum (0+2+4) []
 6
 </pre>
 
-<p>Coming from an imperative language all should seem right.
-In reality many things can be improved.
-First, we can generalize the type.</p>
+<p>从命令式编程译过来看起来应该都没问题.
+其实有很多能改进的.
+首先, 可以将类型一般化.</p>
 
 <pre><code class="haskell"><span class="title">evenSum</span> :: <span class="label">Integral</span> a =&gt; [a] -&gt; a
 </code></pre>
@@ -1047,8 +1052,8 @@ First, we can generalize the type.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/12_Functions.lhs" class="cut">02_Hard_Part/<strong>12_Functions.lhs</strong></a></p>
 
-<p>Next, we can use sub functions using <code>where</code> or <code>let</code>.
-This way our <code>accumSum</code> function won’t pollute the global namespace.</p>
+<p>接着, 可以用 sub function 用 <code>where</code> 或 <code>let</code>.
+借此避免 <code>accumSum</code> 函数污染全局变量.</p>
 
 <div class="codehighlight">
 
@@ -1086,7 +1091,7 @@ This way our <code>accumSum</code> function won’t pollute the global namespace
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/13_Functions.lhs" class="cut">02_Hard_Part/<strong>13_Functions.lhs</strong></a></p>
 
-<p>Next, we can use pattern matching.</p>
+<p>接下来, 用类型匹配.</p>
 
 <div class="codehighlight">
 
@@ -1103,19 +1108,19 @@ This way our <code>accumSum</code> function won’t pollute the global namespace
 
 
 </div>
-<p>What is pattern matching? 
-Use values instead of general parameter names<sup id="fnref:021301"><a href="#fn:021301" rel="footnote">3</a></sup>.</p>
+<p>什么是模式匹配?
+用值替代普通函数名<sup id="fnref:021301"><a href="#fn:021301" rel="footnote">3</a></sup>.</p>
 
-<p>Instead of saying: <code>foo l = if l == [] then &lt;x&gt; else &lt;y&gt;</code>
-You simply state:  </p>
+<p>除了去说: <code>foo l = if l == [] then &lt;x&gt; else &lt;y&gt;</code>
+简单地表示:  </p>
 
 <pre><code class="haskell"><span class="title">foo</span> [] =  &lt;x&gt;
 <span class="title">foo</span> l  =  &lt;y&gt;
 </code></pre>
 
-<p>But pattern matching goes even further.
-It is also able to inspect the inner data of a complex value.
-We can replace</p>
+<p>不过模式匹配想得更远..
+而且可以探测复杂数值内部的数据.
+可以替换</p>
 
 <pre><code class="haskell"><span class="title">foo</span> l =  <span class="keyword">let</span> x  = head l 
              xs = tail l
@@ -1124,15 +1129,15 @@ We can replace</p>
              <span class="keyword">else</span> foo n xs
 </code></pre>
 
-<p>with</p>
+<p>为</p>
 
 <pre><code class="haskell"><span class="title">foo</span> (x:xs) = <span class="keyword">if</span> even x 
                  <span class="keyword">then</span> foo (n+x) xs
                  <span class="keyword">else</span> foo n xs
 </code></pre>
 
-<p>This is a very useful feature.
-It makes our code both terser and easier to read.</p>
+<p>这是个很有用的功能.
+这让代码读起来更简洁更轻松</p>
 
 <div style="display:none">
 
