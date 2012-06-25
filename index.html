@@ -761,9 +761,6 @@ f :: (a -&gt; b) -&gt; c  ⇔ f is a <span class="function"><span class="keyword
 
 <p>在函数定义前声明其类型不是强制性的.
 Haskell 会自行推断出最宽泛的类型.
-Defining the type of a function before its declaration isn’t mandatory.
-Haskell infers the most general type for you.
-But it is considered a good practice to do so.
 但声明类型是一个好的实践.</p>
 
 <p><em>中缀表示法</em></p>
@@ -972,7 +969,6 @@ C 语言操作符 <code>¤?¤:¤</code>. 不能遗漏后面的 <code>else</code>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/11_Functions.lhs" class="cut">02_Hard_Part/<strong>11_Functions.lhs</strong></a></p>
 
 <p>Haskell 第一个解法.
-The first Haskell solution.
 函数 <code>evenSum</code> 返回列表里所有偶数的和:</p>
 
 <div class="codehighlight">
@@ -1156,18 +1152,18 @@ accumSum (0+2+4) []
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/14_Functions.lhs" class="cut">02_Hard_Part/<strong>14_Functions.lhs</strong></a></p>
 
-<p>In Haskell you can simplify function definition by η-reducing them.
-For example, instead of writing:</p>
+<p>Haskell 里可以用 η-reducing 简化函数定义.
+比如, 不必写:</p>
 
 <pre><code class="haskell"><span class="title">f</span> x = (some expresion) x
 </code></pre>
 
-<p>you can simply write</p>
+<p>简单地写</p>
 
 <pre><code class="haskell"><span class="title">f</span> = some expression
 </code></pre>
 
-<p>We use this method to remove the <code>l</code>:</p>
+<p>用这种办法可以移除 <code>l</code>:</p>
 
 <div class="codehighlight">
 
@@ -1207,18 +1203,18 @@ For example, instead of writing:</p>
 
 <p><img alt="Escher" src="./Learn Haskell Fast and Hard_files/escher_polygon.png"></p>
 
-<p>To make things even better we should use higher order functions.
-What are these beasts?
-Higher order functions are functions taking functions as parameter.</p>
+<p>为这能更好需要用到高阶函数.
+那又是什么呢?
+高阶函数是以函数作为参数的函数.</p>
 
-<p>Here are some examples:</p>
+<p>看写例子:</p>
 
 <pre><code class="haskell"><span class="title">filter</span> :: (a -&gt; <span class="label">Bool</span>) -&gt; [a] -&gt; [a]
 <span class="title">map</span> :: (a -&gt; b) -&gt; [a] -&gt; [b]
 <span class="title">foldl</span> :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a
 </code></pre>
 
-<p>Let’s proceed by small steps.</p>
+<p>用小一点的步子开始执行.</p>
 
 <pre><code class="haskell"><span class="comment">-- Version 5</span>
 <span class="title">evenSum</span> l = mysum <span class="number">0</span> (filter even l)
@@ -1227,29 +1223,29 @@ Higher order functions are functions taking functions as parameter.</p>
       mysum n (x:xs) = mysum (n+x) xs 
 </code></pre>
 
-<p>where</p>
+<p>其中</p>
 
 <pre><code class="haskell"><span class="title">filter</span> even [<span class="number">1.</span>.<span class="number">10</span>] ⇔  [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>]
 </code></pre>
 
-<p>The function <code>filter</code> takes a function of type (<code>a -&gt; Bool</code>) and a list of type <code>[a]</code>. It returns a list containing only elements for which the function returned <code>true</code>.</p>
+<p>函数 <code>filter</code> 接收一个类型为 (<code>a -&gt; Bool</code>) 的函数和一个类型为 <code>[a]</code> 的 list. 返回一个只含能让函数返回 <code>true</code> 的元素的 list.</p>
 
-<p>Our next step is to use another way to simulate a loop.
-We will use the <code>foldl</code> function to accumulate a value.
-The function <code>foldl</code> captures a general coding pattern:</p>
+<p>下一步是用一别的办法模拟一个 loop.
+我发将用 <code>foldl</code> 函数来累积一个值.
+函数 <code>foldl</code> 涵盖了一种广泛的编程模式:</p>
 
 <pre>myfunc list = foo <span class="blue">initialValue</span> <span class="green">list</span>
     foo accumulated []     = accumulated
     foo tmpValue    (x:xs) = foo (<span class="yellow">bar</span> tmpValue x) xs
 </pre>
 
-<p>Which can be replaced by:</p>
+<p>可以替换为:</p>
 
 <pre>myfunc list = foldl <span class="yellow">bar</span> <span class="blue">initialValue</span> <span class="green">list</span>
 </pre>
 
-<p>If you really want to know how the magic works.
-Here is the definition of <code>foldl</code>.</p>
+<p>如果你很想了解魔术是怎么实现的.
+这里有个 <code>foldl</code> 的函数定义.</p>
 
 <pre><code class="haskell"><span class="title">foldl</span> f z [] = z
 <span class="title">foldl</span> f z (x:xs) = foldl f (f z x) xs
@@ -1259,13 +1255,13 @@ Here is the definition of <code>foldl</code>.</p>
 ⇔  f (... (f (f z x1) x2) ...) xn
 </code></pre>
 
-<p>But as Haskell is lazy, it doesn’t evaluate <code>(f z x)</code> and pushes it to the stack.
-This is why we generally use <code>foldl'</code> instead of <code>foldl</code>;
-<code>foldl'</code> is a <em>strict</em> version of <code>foldl</code>.
-If you don’t understand what lazy and strict means,
-don’t worry, just follow the code as if <code>foldl</code> and <code>foldl'</code> where identical.</p>
+<p>但由于 Haskell 的惰性, 她不会把代码 <code>(f z x)</code> 执行和推进栈里.
+因此会广泛用 <code>foldl'</code> 代替 <code>foldl</code>;
+<code>foldl'</code> 是 <code>foldl</code> 的 <em>strict</em> 版本.
+如果不懂惰性和strict 的意思,
+别担心, 继续看代码就好了就当 <code>foldl</code> 和 <code>foldl'</code> 是一致的.</p>
 
-<p>Now our new version of <code>evenSum</code> becomes:</p>
+<p>那么 <code>evenSum</code> 新的版本有了:</p>
 
 <pre><code class="haskell"><span class="comment">-- Version 6</span>
 <span class="comment">-- foldl' isn't accessible by default</span>
@@ -1275,8 +1271,8 @@ don’t worry, just follow the code as if <code>foldl</code> and <code>foldl'</c
   <span class="keyword">where</span> mysum acc value = acc + value
 </code></pre>
 
-<p>Version we can simplify by using directly a lambda notation.
-This way we don’t have to create the temporary name <code>mysum</code>.</p>
+<p>这个版本可以直接用 lambda 表达式来简化.
+这样就不用借助临时的 <code>mysum</code> 了.</p>
 
 <div class="codehighlight">
 
@@ -1290,7 +1286,7 @@ This way we don’t have to create the temporary name <code>mysum</code>.</p>
 
 
 </div>
-<p>And of course, we note that</p>
+<p>而且当然, 注意到</p>
 
 <pre><code class="haskell">(\x y -&gt; x+y) ⇔ (+)
 </code></pre>
@@ -1312,7 +1308,7 @@ This way we don’t have to create the temporary name <code>mysum</code>.</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/16_Functions.lhs" class="cut">02_Hard_Part/<strong>16_Functions.lhs</strong></a></p>
 
-<p>Finally</p>
+<p>最终</p>
 
 <pre><code class="haskell"><span class="comment">-- Version 8</span>
 <span class="import"><span class="keyword">import</span> Data.List <span class="container">(<span class="title">foldl'</span>)</span></span>
@@ -1320,10 +1316,10 @@ This way we don’t have to create the temporary name <code>mysum</code>.</p>
 <span class="title">evenSum</span> l = foldl' (+) <span class="number">0</span> (filter even l)
 </code></pre>
 
-<p><code>foldl'</code> isn’t the easiest function to intuit.
-If you are not used to it, you should study it a bit.</p>
+<p><code>foldl'</code> 直观上并不是最简单的函数.
+如果你对它不太习惯, 那该琢磨一下.</p>
 
-<p>To help you understand what’s going on here, a step by step evaluation:</p>
+<p>为了更容易明白这里发生了什么, 一步一步地求值:</p>
 
 <pre>  <span class="yellow">evenSum [1,2,3,4]</span>
 ⇒ foldl' (+) 0 (<span class="yellow">filter even [1,2,3,4]</span>)
@@ -1335,13 +1331,13 @@ If you are not used to it, you should study it a bit.</p>
 ⇒ <span class="blue">6</span>
 </pre>
 
-<p>Another useful higher order function is <code>(.)</code>.
-The <code>(.)</code> function corresponds to the mathematical composition.</p>
+<p>另一个有用的高阶函数是 <code>(.)</code>.
+函数 <code>(.)</code> 相当于数学上的函数复合.</p>
 
 <pre><code class="haskell">(f . g . h) x ⇔  f ( g (h x))
 </code></pre>
 
-<p>We can take advantage of this operator to η-reduce our function:</p>
+<p>可以借助这个运算符对函数进行 η-reduce :</p>
 
 <pre><code class="haskell"><span class="comment">-- Version 9</span>
 <span class="import"><span class="keyword">import</span> Data.List <span class="container">(<span class="title">foldl'</span>)</span></span>
@@ -1349,7 +1345,7 @@ The <code>(.)</code> function corresponds to the mathematical composition.</p>
 <span class="title">evenSum</span> = (foldl' (+) <span class="number">0</span>) . (filter even)
 </code></pre>
 
-<p>Also, we could rename some parts to make it clearer:</p>
+<p>而且, 一些重命名之后更清爽了:</p>
 
 <div class="codehighlight">
 
@@ -1365,18 +1361,18 @@ The <code>(.)</code> function corresponds to the mathematical composition.</p>
 
 
 </div>
-<p>It is time to discuss a bit.
-What did we gain by using higher order functions?</p>
+<p>现在该讨论下了.
+告诫函数能给我们带来什么?</p>
 
-<p>At first, you can say it is terseness.
-But in fact, it has more to do with better thinking.
-Suppose we want to modify slightly our function.
-We want to get the sum of all even square of element of the list.</p>
+<p>首先, 可以说它简练.
+但其实, 好好想想还有很多.
+假设要对我们的函数做轻微的修改,
+想获取 list 中所有奇数的平方和.</p>
 
 <pre><code class="css"><span class="attr_selector">[1,2,3,4]</span> ▷ <span class="attr_selector">[1,4,9,16]</span> ▷ <span class="attr_selector">[4,16]</span> ▷ 20
 </code></pre>
 
-<p>Update the version 10 is extremely easy:</p>
+<p>修改版本 10 超简单:</p>
 
 <div class="codehighlight">
 
@@ -1388,12 +1384,12 @@ We want to get the sum of all even square of element of the list.</p>
 
 
 </div>
-<p>We just had to add another “transformation function”<sup id="fnref:0216"><a href="#fn:0216" rel="footnote">4</a></sup>.</p>
+<p>只需要添加另一个“变换函数”<sup id="fnref:0216"><a href="#fn:0216" rel="footnote">4</a></sup>.</p>
 
 <pre><code class="css"><span class="tag">map</span> (^2) <span class="attr_selector">[1,2,3,4]</span> ⇔ <span class="attr_selector">[1,4,9,16]</span>
 </code></pre>
 
-<p>The <code>map</code> function simply apply a function to all element of a list.</p>
+<p>函数 <code>map</code> 直白地把函数施加到 list 里每个元素.</p>
 
 <p>We didn’t had to modify anything <em>inside</em> the function definition.
 It feels more modular.
