@@ -1362,7 +1362,7 @@ accumSum (0+2+4) []
 
 </div>
 <p>现在该讨论下了.
-告诫函数能给我们带来什么?</p>
+高阶函数能给我们带来什么?</p>
 
 <p>首先, 可以说它简练.
 但其实, 好好想想还有很多.
@@ -1391,33 +1391,32 @@ accumSum (0+2+4) []
 
 <p>函数 <code>map</code> 直白地把函数施加到 list 里每个元素.</p>
 
-<p>We didn’t had to modify anything <em>inside</em> the function definition.
-It feels more modular.
-But in addition you can think more mathematically about your function.
-You can then use your function as any other one.
-You can compose, map, fold, filter using your new function.</p>
+<p>不需要修改函数定义 <em>内部</em> 任何代码.
+看起来更模块化.
+不过同时你对于函数的认识会更数学化.
+你能像用别的函数一样使用这个函数. 可以符合, map, fold, filter 这个函数.</p>
 
-<p>To modify version 1 is left as an exercise to the reader ☺.</p>
+<p>留给读者一个习题, 去修改版本 1. ☺.</p>
 
-<p>If you believe we reached the end of generalization, then know you are very wrong.
-For example, there is a way to not only use this function on lists but on any recursive type.
-If you want to know how, I suggest you to read this quite fun article: <a href="http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf">Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson</a>.</p>
+<p>如果你认为已经一般化到了几点, 那实际上你非常得错误.
+比如有一条是把函数作用于任何递归类型, 而不只用在 list 里.
+如果你想了解更多, 建议看下这篇有趣的文章:
+<a href="http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf">Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson</a>.</p>
 
-<p>This example should show you how great pure functional programming is.
-Unfortunately, using pure functional programming isn’t well suited to all usages.
-Or at least such a language hasn’t been found yet.</p>
+<p>例子应该已经想你展示纯函数式编程能有多棒了.
+不幸的是, 纯函数编程并不能很好地适用于所有情形.
+或者至少还没有那样一门语言.</p>
 
-<p>One of the great powers of Haskell is the ability to create DSLs
+<p>Haskell 一项强大之处是用于创建 DSL
 (Domain Specific Language)
-making it easy to change the programming paradigm.</p>
+使之更易于改变编程范式.</p>
 
-<p>In fact, Haskell is also great when you want to write imperative style programming.
-Understanding this was really hard for me when learning Haskell.
-A lot of effort has been done to explain to you how much functional approach is superior.
-Then when you start the imperative style of Haskell, it is hard to understand why and how.</p>
+<p>实际上, Haskell 在命令式编程时也很棒.
+我当初学 Haskell 很男想明白这一点.
+做了大量的努力解释了函数式的解法佛么优越,
+然后去用 Haskell 写命令式, 这真很令人费解.</p>
 
-<p>But before talking about this Haskell super-power, we must talk about another
-essential aspect of Haskell: <em>Types</em>.</p>
+<p>不过讲 Haskell 的能力前要讲下另一个基本的部分: <em>类型</em>.</p>
 
 <div style="display:none">
 
@@ -1441,34 +1440,34 @@ essential aspect of Haskell: <em>Types</em>.</p>
   <p><span class="sc"><abbr title="Too long; didn&#39;t read">tl;dr</abbr>: </span></p>
 
   <ul>
-    <li><code>type Name = AnotherType</code> is just an alias and the compiler doesn’t do any difference between <code>Name</code> and <code>AnotherType</code>.</li>
-    <li><code>data Name = NameConstructor AnotherType</code> make a difference.</li>
-    <li><code>data</code> can construct structures which can be recursives.</li>
-    <li><code>deriving</code> is magic and create functions for you.</li>
+    <li><code>type Name = AnotherType</code> 这只是个名称,对编译器来说 <code>Name</code> 和 <code>AnotherType</code> 没啥不同.</li>
+    <li><code>data Name = NameConstructor AnotherType</code> 不大一样.</li>
+    <li><code>data</code> 可以构建可递归的类型.</li>
+    <li><code>deriving</code> 的魔法用来为你创建函数.</li>
   </ul>
 </blockquote>
 
-<p>In Haskell, types are strong and static.</p>
+<p>Haskell 里, 是强类型, 是静态类型.</p>
 
-<p>Why is this important? It will help you <em>greatly</em> to avoid mistakes.
-In Haskell, most bugs are caught during the compilation of your program.
-And the main reason is because of the type inference during compilation.
-It will be easy to detect where you used the wrong parameter at the wrong place for example.</p>
+<p>为什么这很重要? 因为这可以 <em>很大程度上</em> 帮你规避错误.
+Haskell 大多 bug 可以在崇虚编译阶段捕获到.
+其主要原因就是编译期间的类型推断.
+比方你用了错误的参数在错误的位置就很容易检测了.</p>
 
 <h4 id="type-inference">类型推断</h4>
 
-<p>Static typing is generally essential to reach fast execution time.
-But most statically typed languages are bad at generalizing concepts.
-Haskell’s saving grace is that it can <em>infer</em> types.</p>
+<p>要实现快速执行, 静态类型普遍很重要.
+但大多静态语言不善于推广概念.
+Haskell 完美解决了通过<em>类型推断</em>.</p>
 
-<p>Here is a simple example. 
-The <code>square</code> function in Haskell:</p>
+<p>下面是例子.
+Haskell 里的 <code>square</code> 函数:</p>
 
 <pre><code class="haskell"><span class="title">square</span> x = x * x
 </code></pre>
 
-<p>This function can <code>square</code> any Numeral type.
-You can provide <code>square</code> with an <code>Int</code>, an <code>Integer</code>, a <code>Float</code> a <code>Fractional</code> and even <code>Complex</code>. Proof by example:</p>
+<p>函数能 <code>square</code> 所有类型的数值.
+用 <code>square</code> 能算 <code>Int</code>, 算 <code>Integer</code>, 算 <code>Float</code> 算 <code>Fractional</code> 甚至 <code>Complex</code>. 例子证明下:</p>
 
 <pre><code class="avrasm">% ghci
 GHCi, version <span class="number">7.0</span><span class="number">.4</span>:
@@ -1484,9 +1483,9 @@ Prelude Data<span class="preprocessor">.Complex</span>&gt; square (<span class="
 <span class="number">3.0</span> :+ <span class="number">4.0</span>
 </code></pre>
 
-<p><code>x :+ y</code> is the notation for the complex (<i>x + ib</i>).</p>
+<p><code>x :+ y</code> 是复数 (<i>x + ib</i>) 的表示法.</p>
 
-<p>Now compare with the amount of code necessary in C:</p>
+<p>再和 C 所需的代码量对比下:</p>
 
 <pre><code class="c avrasm">int     int_square(int <span class="built_in">x</span>) { return <span class="built_in">x</span>*<span class="built_in">x</span><span class="comment">; }</span>
 
@@ -1502,10 +1501,11 @@ complex <span class="built_in">x</span>,<span class="built_in">y</span><span cla
 <span class="built_in">y</span> = complex_square(<span class="built_in">x</span>)<span class="comment">;</span>
 </code></pre>
 
-<p>For each type, you need to write a new function.
+<p>每个类型你都要重新写函数.
+剩下的解法只有去用一些元编程技巧.
 The only way to work around this problem is to use some meta-programming trick.
 For example using the pre-processor.
-In C++ there is a better way, the C++ templates:</p>
+比如用 pre-processor. C++ 里办法好点, C++ templates:</p>
 
 <pre><code class="c++ vala"><span class="preprocessor">#include &lt;iostream&gt;</span>
 <span class="preprocessor">#include &lt;complex&gt;</span>
@@ -1530,23 +1530,22 @@ In C++ there is a better way, the C++ templates:</p>
 }
 </code></pre>
 
-<p>C++ does a far better job than C. 
-For more complex function the syntax can be hard to follow:
-look at 
-<a href="http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/">this article</a> 
-for example.</p>
+<p>C++ 比 C 干得要好很多.
+更复杂的函数里语法可以很难习惯:
+看
+<a href="http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/">这篇文章</a> 
+的例子.</p>
 
-<p>In C++ you must declare that a function can work with different types.
-In Haskell this is the opposite. 
-The function will be as general as possible by default.</p>
+<p>C++ 里必须声明函数可以运行不同的类型.
+Haskell 里相反.
+函数默认会尽可能一般化.</p>
 
-<p>Type inference gives Haskell the feeling of freedom that dynamically
-typed languages provide. 
-But unlike dynamically typed languages, most errors are caught before the execution.
-Generally, in Haskell:</p>
+<p>类型推断让 Haskell 有那种动态语言才有的自由感.
+只是跟动态语言不同的是, 大多错误在代码执行钱就能捕获.
+通常对于 Haskell:</p>
 
 <blockquote>
-  <p>“if it compiles it certainly does what you intended” </p>
+  <p>“只要编译成功了, 她就该是你想的那样运行.” </p>
 </blockquote>
 
 <hr>
