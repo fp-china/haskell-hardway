@@ -1577,17 +1577,18 @@ Haskell 里相反.
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/22_Types.lhs" class="cut">02_Hard_Part/<strong>22_Types.lhs</strong></a></p>
 
-<p>But it doesn’t protect you much.
-Try to swap the two parameter of <code>showInfos</code> and run the program:</p>
+<p>但这并不把你维护得多好.
+尝试下调换 <code>showInfos</code> 两个参数的顺序再运行程序:</p>
 
 <pre><code class="haskell">    putStrLn $ showInfos color name
 </code></pre>
 
-<p>It will compile and execute.
-In fact you can replace Name, Color and String everywhere.
-The compiler will treat them as completely identical.</p>
+<p>编译和运行照常.
+实际上你可以替换掉任何地方的 Name, Color 以及 String.
+编译器看待她们完全相同.
+</p>
 
-<p>Another method is to create your own types using the keyword <code>data</code>.</p>
+<p>另一个创建类型的方法是用 <code>data</code> 关键字.</p>
 
 <div class="codehighlight">
 
@@ -1606,32 +1607,32 @@ The compiler will treat them as completely identical.</p>
 
 
 </div>
-<p>Now if you switch parameters of <code>showInfos</code>, the compiler complains!
-A possible mistake you could never do again.
-The only price is to be more verbose. </p>
+<p>现在如果调换 <code>showInfos</code> 两个参数的顺序, 编译器会报错!
+那个可能出现的错误你也不会再犯.
+代价是代码因此冗长. </p>
 
-<p>Also remark constructor are functions:</p>
+<p>同时要注意 contructor 是函数:</p>
 
 <pre><code class="haskell"><span class="label">NameConstr</span>  :: <span class="label">String</span> -&gt; <span class="label">Name</span>
 <span class="label">ColorConstr</span> :: <span class="label">String</span> -&gt; <span class="label">Color</span>
 </code></pre>
 
-<p>The syntax of <code>data</code> is mainly:</p>
+<p> <code>data</code> 语法的主体是:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">TypeName</span> =   <span class="label">ConstructorName</span>  [types]</span>
                 | <span class="label">ConstructorName2</span> [<span class="class">types]</span>
                 | ...
 </code></pre>
 
-<p>Generally the usage is to use the same name for the
-DataTypeName and DataTypeConstructor.</p>
+<p>一般的用法是在
+DataTypeName 和 DataTypeConstructor 使用一致的名称.</p>
 
-<p>Example:</p>
+<p>例如:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">Complex</span> = <span class="label">Num</span> a =&gt; <span class="label">Complex</span> a a</span>
 </code></pre>
 
-<p>Also you can use the record syntax:</p>
+<p>可以使用记录的(record?)语法:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">DataTypeName</span> = <span class="label">DataConstructor</span> {</span>
                       field1 :: [<span class="class"><span class="keyword">type</span> of field1]</span>
@@ -1640,10 +1641,10 @@ DataTypeName and DataTypeConstructor.</p>
                     , fieldn :: [<span class="class"><span class="keyword">type</span> of fieldn] }</span>
 </code></pre>
 
-<p>And many accessors are made for you.
-Furthermore you can use another order when setting values.</p>
+<p>并且有多种存取的方式.
+而且赋值时可以使用其他的顺序.</p>
 
-<p>Example:</p>
+<p>例如:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">Complex</span> = <span class="label">Num</span> a =&gt; <span class="label">Complex</span> { real :: a, img :: a}</span>
 <span class="title">c</span> = <span class="label">Complex</span> <span class="number">1.0</span> <span class="number">2.0</span>
@@ -1659,21 +1660,21 @@ Furthermore you can use another order when setting values.</p>
 
 <h4 id="recursive-type">递归类型</h4>
 
-<p>You already encountered a recursive type: lists.
-You can re-create lists, but with a more verbose syntax:</p>
+<p>你已经见过一种递归类型: list.
+list 类型可以重新创建, 需要用到冗长的语法:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">List</span> a = <span class="label">Empty</span> | <span class="label">Cons</span> a (<span class="label">List</span> a)</span>
 </code></pre>
 
-<p>If you really want to use an easier syntax you can use an infix name for constructors.</p>
+<p>要想用更简单的语法你需要对 constructor 使用中缀的名称.</p>
 
 <pre><code class="haskell"><span class="title">infixr</span> <span class="number">5</span> :::
 <span class="class"><span class="keyword">data</span> <span class="label">List</span> a = <span class="label">Nil</span> | a ::: (<span class="label">List</span> a)</span>
 </code></pre>
 
-<p>The number after <code>infixr</code> is the priority.</p>
+<p> <code>infixr</code> 后的数字表示优先级.</p>
 
-<p>If you want to be able to print (<code>Show</code>), read (<code>Read</code>), test equality (<code>Eq</code>) and compare (<code>Ord</code>) your new data structure you can tell Haskell to derive the appropriate functions for you.</p>
+<p>为了让定义的数据结构能进行 print (<code>Show</code>), read (<code>Read</code>), 检测 equality (<code>Eq</code>) and compare (<code>Ord</code>) 可以告诉 Haskell 替你派生出适当的函数.</p>
 
 <div class="codehighlight">
 
@@ -1685,8 +1686,8 @@ You can re-create lists, but with a more verbose syntax:</p>
 
 
 </div>
-<p>When you add <code>deriving (Show)</code> to your data declaration, Haskell create a <code>show</code> function for you.
-We’ll see soon how you can use your own <code>show</code> function.</p>
+<p>在类型声明加上 <code>deriving (Show)</code> 之后, Haskell 会为你创建一个 <code>show</code> 函数.
+接下来很快可以看到怎么去用你的 <code>show</code> 函数.</p>
 
 <div class="codehighlight">
 
@@ -1707,7 +1708,7 @@ We’ll see soon how you can use your own <code>show</code> function.</p>
 
 
 </div>
-<p>This prints:</p>
+<p>这会输出:</p>
 
 <pre><code class="delphi"><span class="number">0</span> ::: (<span class="number">1</span> ::: <span class="keyword">Nil</span>)
 <span class="number">0</span> ::: (<span class="number">1</span> ::: <span class="keyword">Nil</span>)
@@ -1722,7 +1723,7 @@ We’ll see soon how you can use your own <code>show</code> function.</p>
 
 <p><img alt="Magritte, l&#39;Arbre" src="./Learn Haskell Fast and Hard_files/magritte-l-arbre.jpg"></p>
 
-<p>We’ll just give another standard example: binary trees.</p>
+<p>下面会直接给出标准案例: binary trees.</p>
 
 <div class="codehighlight">
 
@@ -1736,7 +1737,7 @@ We’ll see soon how you can use your own <code>show</code> function.</p>
 
 
 </div>
-<p>We will also create a function which turns a list into an ordered binary tree.</p>
+<p>下面创建一个函数用来把一个 list 转化为一个有序的 binary tree.</p>
 
 <div class="codehighlight">
 
@@ -1749,16 +1750,16 @@ We’ll see soon how you can use your own <code>show</code> function.</p>
 
 
 </div>
-<p>Look at how elegant this function is.
-In plain English: </p>
+<p>看看这个函数多优雅.
+用白话说: </p>
 
 <ul>
-  <li>an empty list will be converted to an empty tree.</li>
-  <li>a list <code>(x:xs)</code> will be converted to a tree where:
+  <li>空的 list 会被转化成空的 tree.</li>
+  <li> list <code>(x:xs)</code> 会被转化为 tree , 满足:
     <ul>
-      <li>The root is <code>x</code></li>
-      <li>Its left subtree is the tree created from members of the list <code>xs</code> which are strictly inferior to <code>x</code> and</li>
-      <li>the right subtree is the tree created from members of the list <code>xs</code> which are strictly superior to <code>x</code>.</li>
+      <li>root 是 <code>x</code></li>
+      <li>左子树是 list <code>xs</code> 中严格小于 <code>x</code> 的成员生成的 tree</li>
+      <li>右子树是 list <code>xs</code> 中严格大于 <code>x</code> 的成员生成的 tree.</li>
     </ul>
   </li>
 </ul>
@@ -1771,12 +1772,12 @@ In plain English: </p>
 
 
 </div>
-<p>You should obtain the following:</p>
+<p>得到结果如下:</p>
 
 <pre><code class="php">Node <span class="number">7</span> (Node <span class="number">2</span> <span class="keyword">Empty</span> (Node <span class="number">4</span> <span class="keyword">Empty</span> <span class="keyword">Empty</span>)) (Node <span class="number">8</span> <span class="keyword">Empty</span> <span class="keyword">Empty</span>)
 </code></pre>
 
-<p>This is an informative but quite unpleasant representation of our tree.</p>
+<p>这是 tree 一种可读的但不漂亮的一种表示.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/30_Trees.lhs" class="cut">02_Hard_Part/<strong>30_Trees.lhs</strong> </a></p>
 
