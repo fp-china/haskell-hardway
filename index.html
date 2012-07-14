@@ -1784,14 +1784,14 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/31_Trees.lhs" class="cut">02_Hard_Part/<strong>31_Trees.lhs</strong></a></p>
 
-<p>Just for fun, let’s code a better display for our trees.
-I simply had fun making a nice function to display trees in a general way.
-You can safely skip this part if you find it too difficult to follow.</p>
+<p>为了更有趣, 给 tree 编写一个更漂亮的表示形式.
+我简单地就是很喜欢给 tree 做通用而且漂亮的函数来显示.
+如果这部分对你来说太难, 跳过这部分没有问题.</p>
 
-<p>We have a few changes to make.
-We remove the <code>deriving (Show)</code> from the declaration of our <code>BinTree</code> type.
-And it might also be useful to make our BinTree an instance of (<code>Eq</code> and <code>Ord</code>).
-We will be able to test equality and compare trees.</p>
+<p>我们要做一些改变.
+从 <code>BinTree</code> 类型的声明中移除 <code>deriving (Show)</code>.
+让 BinTree 类型成为 (<code>Eq</code> 和 <code>Ord</code>) 的实例也会比较有用.
+我们将可以比较和测试两棵树.</p>
 
 <div class="codehighlight">
 
@@ -1803,19 +1803,19 @@ We will be able to test equality and compare trees.</p>
 
 
 </div>
-<p>Without the <code>deriving (Show)</code>, Haskell doesn’t create a <code>show</code> method for us.
-We will create our own version of <code>show</code>.
-To achieve this, we must declare that our newly created type <code>BinTree a</code> 
-is an instance of the type class <code>Show</code>.
-The general syntax is:</p>
+<p>没有了 <code>deriving (Show)</code>, Haskell 不会为我们创建 <code>show</code> 方法.
+我们将自己创建一个 <code>show</code>.
+为了将它实现, 必须么声明我们新创建的类型 <code>BinTree a</code> 
+是类型类 <code>Show</code> 的一个实例.
+一般的语法是:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">instance</span> <span class="label">Show</span> (<span class="label">BinTree</span> a) <span class="keyword">where</span></span>
    show t = ... <span class="comment">-- You declare your function here</span>
 </code></pre>
 
-<p>Here is my version of how to show a binary tree.
-Don’t worry about the apparent complexity.
-I made a lot of improvements in order to display even stranger objects.</p>
+<p>下面是我写的展示二叉树的代码.
+别担心表面看去的复杂性.
+为显示甚至古怪些的对象, 我做了不少的优化.</p>
 
 <div class="codehighlight">
 
@@ -1868,7 +1868,7 @@ I made a lot of improvements in order to display even stranger objects.</p>
 
 
 </div>
-<p>The <code>treeFromList</code> method remains identical.</p>
+<p>其中 <code>treeFromList</code> 方法仍然一致.</p>
 
 <div class="codehighlight">
 
@@ -1881,7 +1881,7 @@ I made a lot of improvements in order to display even stranger objects.</p>
 
 
 </div>
-<p>And now, we can play:</p>
+<p>现在我们来演示:</p>
 
 <div class="codehighlight">
 
@@ -1906,10 +1906,10 @@ I made a lot of improvements in order to display even stranger objects.</p>
 :       `<span class="comment">--23</span>
 </code></pre>
 
-<p>Now it is far better! 
-The root is shown by starting the line with the <code>&lt;</code> character.
-And each following line starts with a <code>:</code>.
-But we could also use another type.</p>
+<p>现在好多了.
+根部一行用 <code>&lt;</code> 符号开头.
+接下来的没一行以 <code>:</code> 开头.
+另外也可以用在另一种类型.</p>
 
 <div class="codehighlight">
 
@@ -1928,8 +1928,8 @@ But we could also use another type.</p>
 :    `<span class="comment">--"yog"</span>
 </code></pre>
 
-<p>As we can test equality and order trees, we can
-make tree of trees!</p>
+<p>因为能检测 tree 是否相等和顺序, 
+我们还可以从树创建树!</p>
 
 <div class="codehighlight">
 
@@ -1953,7 +1953,7 @@ make tree of trees!</p>
 :    :    `<span class="comment">--'r'</span>
 </code></pre>
 
-<p>This is why I chose to prefix each line of tree display by <code>:</code> (except for the root).</p>
+<p>这就是我让没每一行以 <code>:</code> 开头的原因(根部以外).</p>
 
 <p><img alt="Yo Dawg Tree" src="./Learn Haskell Fast and Hard_files/yo_dawg_tree.jpg"></p>
 
@@ -1970,7 +1970,7 @@ make tree of trees!</p>
 
 
 </div>
-<p>Which is equivalent to</p>
+<p>上面的等价于</p>
 
 <pre><code class="haskell"><span class="title">print</span> ( treeFromList (
           map treeFromList 
@@ -1980,7 +1980,7 @@ make tree of trees!</p>
              , map treeFromList [<span class="string">"YOU"</span>,<span class="string">"LIKE"</span>,<span class="string">"TREES"</span>] ]))
 </code></pre>
 
-<p>and gives:</p>
+<p>输出:</p>
 
 <pre><code class="haskell"><span class="label">Binary</span> tree <span class="keyword">of</span> <span class="label">Binary</span> trees <span class="keyword">of</span> <span class="label">Char</span> binary trees:
 &lt; &lt; &lt;<span class="string"> 'Y'</span>
@@ -2008,13 +2008,13 @@ make tree of trees!</p>
 :    :       :    `<span class="comment">--'S'</span>
 </code></pre>
 
-<p>Notice how duplicate trees aren’t inserted;
-there is only one tree corresponding to <code>"I","HEARD"</code>.
-We have this for (almost) free, because we have declared Tree to be an instance of <code>Eq</code>.</p>
+<p>注意重复的 tree 为什么没有被插入;
+上面只有一棵树对应 <code>"I","HEARD"</code>.
+我们很轻松地将其实现了, 因为我们已经声明了 Tree 是 <code>Eq</code> 类型的实例.</p>
 
-<p>See how awesome this structure is.
-We can make trees containing not only integers, strings and chars, but also other trees.
-And we can even make a tree containing a tree of trees!</p>
+<p>看看这个结构多漂亮.
+我们可以创建的 tree 不仅包含整数, 字符串和字符, 还有其他的 tree.
+而且我们海南生成包含含有其他 tree 的 tree 的 tree.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/31_Trees.lhs" class="cut">02_Hard_Part/<strong>31_Trees.lhs</strong> </a></p>
 
@@ -2025,20 +2025,20 @@ And we can even make a tree containing a tree of trees!</p>
 
 <p><img alt="Escher" src="./Learn Haskell Fast and Hard_files/escher_infinite_lizards.jpg"></p>
 
-<p>It is often stated that Haskell is <em>lazy</em>.</p>
+<p>Haskell 经常被说是 <em>惰性</em>.</p>
 
-<p>In fact, if you are a bit pedantic, you should state that <a href="http://www.haskell.org/haskellwiki/Lazy_vs._non-strict">Haskell is <em>non-strict</em></a>.
-Laziness is just a common implementation for non-strict languages.</p>
+<p>事实上, 如果你迂腐点, 你会说 <a href="http://www.haskell.org/haskellwiki/Lazy_vs._non-strict">Haskell 是 <em>non-strict</em></a>.
+惰性是 non-strict 语言一种通常的实现方式.</p>
 
-<p>Then what does not-strict means? From the Haskell wiki:</p>
+<p>那么 not-strict 什么意思? 根据 Haskell wiki:</p>
 
 <blockquote>
-  <p>Reduction (the mathematical term for evaluation) proceeds from the outside in.</p>
+  <p>递归 (求值的数学术语) 从外部开始执行.</p>
 
-  <p>so if you have <code>(a+(b*c))</code> then you first reduce <code>+</code> first, then you reduce the inner <code>(b*c)</code></p>
+  <p>因此给定 <code>(a+(b*c))</code> 那么 <code>+</code> 会首先约简, 然后内部的 <code>(b*c)</code> 再被约简</p>
 </blockquote>
 
-<p>For example in Haskell you can do:</p>
+<p>比如 Haskell 里你可以这么做:</p>
 
 <div class="codehighlight">
 
@@ -2056,21 +2056,21 @@ Laziness is just a common implementation for non-strict languages.</p>
 
 
 </div>
-<p>And it stops.</p>
+<p>而且它可以停下来.</p>
 
-<p>How?</p>
+<p>怎么做到?</p>
 
-<p>Instead of trying to evaluate <code>numbers</code> entirely, 
-it evaluates elements only when needed.</p>
+<p>不是去尝试对 <code>numbers</code> 整个地求值, 
+只有被需要的元素才会被求值.</p>
 
-<p>Also, note in Haskell there is a notation for infinite lists</p>
+<p>而且, 注意 Haskell 里有无限列表的表示法</p>
 
 <pre><code class="css"><span class="attr_selector">[1..]</span>   ⇔ <span class="attr_selector">[1,2,3,4...]</span>
 <span class="attr_selector">[1,3..]</span> ⇔ <span class="attr_selector">[1,3,5,7,9,11...]</span>
 </code></pre>
 
-<p>And most functions will work with them.
-Also, there is a built-in function <code>take</code> which is equivalent to our <code>take'</code>.</p>
+<p>绝大多数函数都可以正常处理无限列表.
+然后, 有个内置函数 <code>take</code> 和我们的 <code>take'</code> 是等价的.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/02_Hard_Part/40_Infinites_Structures.lhs" class="cut">02_Hard_Part/<strong>40_Infinites_Structures.lhs</strong> </a></p>
 
@@ -2140,8 +2140,8 @@ This code is mostly the same as the previous one.
 </div>
 </div>
 
-<p>Suppose we don’t mind having an ordered binary tree.
-Here is an infinite binary tree:</p>
+<p>假设我们不介意用到有序的二叉树.
+这里有棵无限的二叉树:</p>
 
 <div class="codehighlight">
 
@@ -2151,8 +2151,8 @@ Here is an infinite binary tree:</p>
 
 
 </div>
-<p>A complete binary tree where each node is equal to 0.
-Now I will prove you can manipulate this object using the following function:</p>
+<p>一棵完整的二叉树, 其中每个节点均为 0.
+现在我将证明你能用下面的函数操作这个对象:</p>
 
 <div class="codehighlight">
 
@@ -2170,12 +2170,12 @@ Now I will prove you can manipulate this object using the following function:</p
 
 
 </div>
-<p>See what occurs for this program:</p>
+<p>看看这段程序得到了什么:</p>
 
 <pre><code class="haskell"><span class="title">main</span> = print $ treeTakeDepth <span class="number">4</span> nullTree
 </code></pre>
 
-<p>This code compiles, runs and stops giving the following result:</p>
+<p>这段代码编译, 执行, 停止, 给出了下面的结果:</p>
 
 <pre><code class="lua">&lt;  <span class="number">0</span>
 : |<span class="comment">-- 0</span>
@@ -2194,8 +2194,8 @@ Now I will prove you can manipulate this object using the following function:</p
 :       `<span class="comment">-- 0</span>
 </code></pre>
 
-<p>Just to heat up your neurones a bit more,
-let’s make a slightly more interesting tree:</p>
+<p>打起精神,
+我们再写个更有趣点的 tree:</p>
 
 <div class="codehighlight">
 
@@ -2208,9 +2208,9 @@ let’s make a slightly more interesting tree:</p>
 
 
 </div>
-<p>Another way to create this tree is to use a higher order function.
-This function should be similar to <code>map</code>, but should work on <code>BinTree</code> instead of list.
-Here is such a function:</p>
+<p>另一种这样产生树的方法是用高阶函数.
+函数会相似于 <code>map</code>, 但会作用于 <code>BinTree</code> 而不是 list.
+下面是这样一个函数:</p>
 
 <div class="codehighlight">
 
@@ -2225,11 +2225,11 @@ Here is such a function:</p>
 
 
 </div>
-<p><em>Hint</em>: I won’t talk more about this here. 
-If you are interested by the generalization of <code>map</code> to other data structures,
-search for functor and <code>fmap</code>.</p>
+<p><em>提示</em>: 关于这些我不会说太多. 
+如果你对生成其他数据结构的 <code>map</code> 感兴趣,
+可以搜索 functor 和 <code>fmap</code>.</p>
 
-<p>Our definition is now:</p>
+<p>我们现在定义是:</p>
 
 <div class="codehighlight">
 
@@ -2241,7 +2241,7 @@ search for functor and <code>fmap</code>.</p>
 
 
 </div>
-<p>Look at the result for </p>
+<p>看下它的结果</p>
 
 <pre><code class="haskell"><span class="title">main</span> = print $ treeTakeDepth <span class="number">4</span> infTreeTwo
 </code></pre>
