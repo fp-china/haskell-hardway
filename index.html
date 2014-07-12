@@ -17,7 +17,7 @@
                     Learn Haskell Fast and Hard
                 </h1>
                 <h2>
-                    Blow your mind with Haskell 
+                    用 Haskell 开阔你的视野
                 </h2>
             </div>
 
@@ -269,7 +269,7 @@ name = raw_input()
 int main (int argc, char **argv) <span class="special">{</span>
     char name<span class="special">[</span>666<span class="special">]</span>; // &lt;- An Evil Number!
     // What if my name is more than 665 character long?
-    printf("What is your name?<span class="command">\n</span>"); 
+    printf("What is your name?<span class="command">\n</span>");
     scanf("<span class="comment">%s", name);</span>
     printf("Hello <span class="comment">%s!\n", name);</span>
     return 0;
@@ -517,7 +517,7 @@ Prelude&gt;</code></span> let f x y = x*x + y*y
   </tbody>
 </table>
 
-<p>在类型 <code>a -&gt; a -&gt; a</code> 里, 字母 <code>a</code> 是个 <em>类型变量</em>. 
+<p>在类型 <code>a -&gt; a -&gt; a</code> 里, 字母 <code>a</code> 是个 <em>类型变量</em>.
 意思是<code>f</code> 是有两个参数的函数而且两个参数和返回值是相同的类型.
 类型变量 <code>a</code> 能表示多种类型.
 比如 <code>Int</code>, <code>Integer</code>, <code>Float</code>...</p>
@@ -548,7 +548,7 @@ Prelude&gt;</code></span> let f x y = x*x + y*y
 反而所有函数都只有一个参数.
 但我们会发现接收两个参数等同于接收一个参数再返回一个来接收第二个参数的函数.</p>
 
-<p>更直白地 <code>f 3 4</code> 等于是 <code>(f 3) 4</code>. 
+<p>更直白地 <code>f 3 4</code> 等于是 <code>(f 3) 4</code>.
 注意 <code>f 3</code> 是个函数:</p>
 
 <pre><code class="perl">f :: Num a :: a -&gt; a -&gt; a
@@ -660,7 +660,7 @@ Haskell 有大量特性.
 
 <p><code>Integer</code> 没有上限, 而你的设备会到极限:</p>
 
-<pre><code class="parser3"><span class="number">4</span><span class="keyword">^103</span>   
+<pre><code class="parser3"><span class="number">4</span><span class="keyword">^103</span>
 <span class="number">102844034832575377634685573909834406561420991602098741459288064</span>
 </code></pre>
 
@@ -710,7 +710,7 @@ Data<span class="preprocessor">.Ratio</span>&gt; (<span class="number">11</span>
 
 <h5 id="tuples">Tuples</h5>
 
-<p>两个元素的 tuple 类型为 <code>(a,b)</code>. 
+<p>两个元素的 tuple 类型为 <code>(a,b)</code>.
 tuple 允许元素属于不同类型.</p>
 
 <pre><code class="avrasm">-- All these tuple are valid
@@ -733,7 +733,7 @@ snd (<span class="built_in">x</span>,<span class="built_in">y</span>,<span class
 f g h <span class="keyword">x</span>         ⇔  (((f g) h) <span class="keyword">x</span>)
 
 -- the $ replace parenthesis from the $
--- to the end of the expression 
+-- to the end of the expression
 f g $ h <span class="keyword">x</span>       ⇔  f g (h <span class="keyword">x</span>) ⇔ (f g) (h <span class="keyword">x</span>)
 f $ g h <span class="keyword">x</span>       ⇔  f (g h <span class="keyword">x</span>) ⇔ f ((g h) <span class="keyword">x</span>)
 f $ g $ h <span class="keyword">x</span>     ⇔  f (g (h <span class="keyword">x</span>))
@@ -753,7 +753,7 @@ f $ g $ h <span class="keyword">x</span>     ⇔  f (g (h <span class="keyword">
 <pre><code class="lua">x :: Int            ⇔ x is of <span class="built_in">type</span> Int
 x :: a              ⇔ x can be of any <span class="built_in">type</span>
 x :: Num a =&gt; a     ⇔ x can be any <span class="built_in">type</span> a
-                      such that a belongs to Num <span class="built_in">type</span> class 
+                      such that a belongs to Num <span class="built_in">type</span> class
 f :: a -&gt; b         ⇔ f is a <span class="function"><span class="keyword">function</span> <span class="title">from</span> <span class="title">a</span> <span class="title">to</span> <span class="title">b</span>
 <span class="title">f</span> :: <span class="title">a</span> -&gt; <span class="title">b</span> -&gt; <span class="title">c</span>    ⇔ <span class="title">f</span> <span class="title">is</span> <span class="title">a</span> <span class="title">function</span> <span class="title">from</span> <span class="title">a</span> <span class="title">to</span> <span class="params">(b→c)</span></span>
 f :: (a -&gt; b) -&gt; c  ⇔ f is a <span class="function"><span class="keyword">function</span> <span class="title">from</span> <span class="params">(a→b)</span></span> to c
@@ -768,13 +768,13 @@ Haskell 会自行推断出最宽泛的类型.
 <div class="codehighlight">
 
 
-<pre><code class="haskell"><span class="title">square</span> :: <span class="label">Num</span> a =&gt; a -&gt; a  
+<pre><code class="haskell"><span class="title">square</span> :: <span class="label">Num</span> a =&gt; a -&gt; a
 <span class="title">square</span> x = x^<span class="number">2</span>
 </code></pre>
 
 
 </div>
-<p>注意 <code>^</code> 用了中缀表示法. 
+<p>注意 <code>^</code> 用了中缀表示法.
 每个中缀表示法有对应的前缀表示法.
 只要加上括号.</p>
 
@@ -981,8 +981,8 @@ C 语言操作符 <code>¤?¤:¤</code>. 不能遗漏后面的 <code>else</code>
 
 <span class="title">accumSum</span> n l = <span class="keyword">if</span> l == []
                   <span class="keyword">then</span> n
-                  <span class="keyword">else</span> <span class="keyword">let</span> x = head l 
-                           xs = tail l 
+                  <span class="keyword">else</span> <span class="keyword">let</span> x = head l
+                           xs = tail l
                        <span class="keyword">in</span> <span class="keyword">if</span> even x
                               <span class="keyword">then</span> accumSum (n+x) xs
                               <span class="keyword">else</span> accumSum n xs
@@ -997,7 +997,7 @@ C 语言操作符 <code>¤?¤:¤</code>. 不能遗漏后面的 <code>else</code>
 Loading package ghc-prim ... linking ... done.
 Loading package integer-gmp ... linking ... done.
 Loading package base ... linking ... done.
-Prelude&gt;</span> :load 11_Functions.lhs 
+Prelude&gt;</span> :load 11_Functions.lhs
 <span class="low">[1 of 1] Compiling Main             ( 11_Functions.lhs, interpreted )
 Ok, modules loaded: Main.
 *Main&gt;</span> evenSum [1..5]
@@ -1058,11 +1058,11 @@ accumSum (0+2+4) []
 <span class="title">evenSum</span> :: <span class="label">Integral</span> a =&gt; [a] -&gt; a
 
 <span class="title">evenSum</span> l = accumSum <span class="number">0</span> l
-    <span class="keyword">where</span> accumSum n l = 
+    <span class="keyword">where</span> accumSum n l =
             <span class="keyword">if</span> l == []
                 <span class="keyword">then</span> n
-                <span class="keyword">else</span> <span class="keyword">let</span> x = head l 
-                         xs = tail l 
+                <span class="keyword">else</span> <span class="keyword">let</span> x = head l
+                         xs = tail l
                      <span class="keyword">in</span> <span class="keyword">if</span> even x
                             <span class="keyword">then</span> accumSum (n+x) xs
                             <span class="keyword">else</span> accumSum n xs
@@ -1094,9 +1094,9 @@ accumSum (0+2+4) []
 
 <pre><code class="haskell"><span class="comment">-- Version 3</span>
 <span class="title">evenSum</span> l = accumSum <span class="number">0</span> l
-    <span class="keyword">where</span> 
+    <span class="keyword">where</span>
         accumSum n [] = n
-        accumSum n (x:xs) = 
+        accumSum n (x:xs) =
              <span class="keyword">if</span> even x
                 <span class="keyword">then</span> accumSum (n+x) xs
                 <span class="keyword">else</span> accumSum n xs
@@ -1118,16 +1118,16 @@ accumSum (0+2+4) []
 而且可以探测复杂数值内部的数据.
 可以替换</p>
 
-<pre><code class="haskell"><span class="title">foo</span> l =  <span class="keyword">let</span> x  = head l 
+<pre><code class="haskell"><span class="title">foo</span> l =  <span class="keyword">let</span> x  = head l
              xs = tail l
-         <span class="keyword">in</span> <span class="keyword">if</span> even x 
+         <span class="keyword">in</span> <span class="keyword">if</span> even x
              <span class="keyword">then</span> foo (n+x) xs
              <span class="keyword">else</span> foo n xs
 </code></pre>
 
 <p>为</p>
 
-<pre><code class="haskell"><span class="title">foo</span> (x:xs) = <span class="keyword">if</span> even x 
+<pre><code class="haskell"><span class="title">foo</span> (x:xs) = <span class="keyword">if</span> even x
                  <span class="keyword">then</span> foo (n+x) xs
                  <span class="keyword">else</span> foo n xs
 </code></pre>
@@ -1172,9 +1172,9 @@ accumSum (0+2+4) []
 <span class="title">evenSum</span> :: <span class="label">Integral</span> a =&gt; [a] -&gt; a
 
 <span class="title">evenSum</span> = accumSum <span class="number">0</span>
-    <span class="keyword">where</span> 
+    <span class="keyword">where</span>
         accumSum n [] = n
-        accumSum n (x:xs) = 
+        accumSum n (x:xs) =
              <span class="keyword">if</span> even x
                 <span class="keyword">then</span> accumSum (n+x) xs
                 <span class="keyword">else</span> accumSum n xs
@@ -1218,9 +1218,9 @@ accumSum (0+2+4) []
 
 <pre><code class="haskell"><span class="comment">-- Version 5</span>
 <span class="title">evenSum</span> l = mysum <span class="number">0</span> (filter even l)
-    <span class="keyword">where</span> 
+    <span class="keyword">where</span>
       mysum n [] = n
-      mysum n (x:xs) = mysum (n+x) xs 
+      mysum n (x:xs) = mysum (n+x) xs
 </code></pre>
 
 <p>其中</p>
@@ -1324,7 +1324,7 @@ accumSum (0+2+4) []
 <pre>  <span class="yellow">evenSum [1,2,3,4]</span>
 ⇒ foldl' (+) 0 (<span class="yellow">filter even [1,2,3,4]</span>)
 ⇒ <span class="yellow">foldl' (+) 0 <span class="blue">[2,4]</span></span>
-⇒ <span class="blue">foldl' (+) (<span class="yellow">0+2</span>) [4]</span> 
+⇒ <span class="blue">foldl' (+) (<span class="yellow">0+2</span>) [4]</span>
 ⇒ <span class="yellow">foldl' (+) <span class="blue">2</span> [4]</span>
 ⇒ <span class="blue">foldl' (+) (<span class="yellow">2+4</span>) []</span>
 ⇒ <span class="yellow">foldl' (+) <span class="blue">6</span> []</span>
@@ -1356,7 +1356,7 @@ accumSum (0+2+4) []
 <span class="title">sum'</span> = foldl' (+) <span class="number">0</span>
 <span class="title">evenSum</span> :: <span class="label">Integral</span> a =&gt; [a] -&gt; a
 <span class="title">evenSum</span> = sum' . (filter even)
- 
+
 </code></pre>
 
 
@@ -1522,7 +1522,7 @@ complex <span class="built_in">x</span>,<span class="built_in">y</span><span cla
     <span class="comment">// double</span>
     cout &lt;&lt; (<span class="keyword">double</span>)square(<span class="number">5.3</span>) &lt;&lt; endl;
     <span class="comment">// complex</span>
-    cout &lt;&lt; square( complex&lt;<span class="keyword">double</span>&gt;(<span class="number">5</span>,<span class="number">3</span>) ) 
+    cout &lt;&lt; square( complex&lt;<span class="keyword">double</span>&gt;(<span class="number">5</span>,<span class="number">3</span>) )
          &lt;&lt; endl;
     <span class="keyword">return</span> <span class="number">0</span>;
 }
@@ -1531,7 +1531,7 @@ complex <span class="built_in">x</span>,<span class="built_in">y</span><span cla
 <p>C++ 比 C 干得要好很多.
 更复杂的函数里语法可以很难习惯:
 看
-<a href="http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/">这篇文章</a> 
+<a href="http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/">这篇文章</a>
 的例子.</p>
 
 <p>C++ 里必须声明函数可以运行不同的类型.
@@ -1731,7 +1731,7 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 <pre><code class="haskell"><span class="import"><span class="keyword">import</span> Data.List</span>
 
 <span class="class"><span class="keyword">data</span> <span class="label">BinTree</span> a = <span class="label">Empty</span> </span>
-                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a) 
+                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a)
                               <span class="keyword">deriving</span> (<span class="label">Show</span>)
 </code></pre>
 
@@ -1797,7 +1797,7 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">BinTree</span> a = <span class="label">Empty</span> </span>
-                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a) 
+                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a)
                   <span class="keyword">deriving</span> (<span class="label">Eq</span>,<span class="label">Ord</span>)
 </code></pre>
 
@@ -1805,7 +1805,7 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 </div>
 <p>没有了 <code>deriving (Show)</code>, Haskell 不会为我们创建 <code>show</code> 方法.
 我们将自己创建一个 <code>show</code>.
-为了将它实现, 必须么声明我们新创建的类型 <code>BinTree a</code> 
+为了将它实现, 必须么声明我们新创建的类型 <code>BinTree a</code>
 是类型类 <code>Show</code> 的一个实例.
 一般的语法是:</p>
 
@@ -1831,27 +1831,27 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
     <span class="comment">-- We don't display the Empty tree</span>
     treeshow pref <span class="label">Empty</span> = <span class="string">""</span>
     <span class="comment">-- Leaf</span>
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) =
                   (pshow pref x)
 
     <span class="comment">-- Right branch is empty</span>
-    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> left)
 
     <span class="comment">-- Left branch is empty</span>
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
     <span class="comment">-- Tree with left and right children non empty</span>
-    treeshow pref (<span class="label">Node</span> x left right) = 
+    treeshow pref (<span class="label">Node</span> x left right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"|--"</span> <span class="string">"|  "</span> left) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
     <span class="comment">-- shows a tree using some prefixes to make it nice</span>
-    showSon pref before next t = 
+    showSon pref before next t =
                   pref ++ before ++ treeshow (pref ++ next) t
 
     <span class="comment">-- pshow replaces "\n" by "\n"++pref</span>
@@ -1861,7 +1861,7 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
     replace c new string =
       concatMap (change c new) string
       <span class="keyword">where</span>
-          change c new x 
+          change c new x
               | x == c = new
               | otherwise = x:[] <span class="comment">-- "x"</span>
 </code></pre>
@@ -1928,14 +1928,14 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 :    `<span class="comment">--"yog"</span>
 </code></pre>
 
-<p>因为能检测 tree 是否相等和顺序, 
+<p>因为能检测 tree 是否相等和顺序,
 我们还可以从树创建树!</p>
 
 <div class="codehighlight">
 
 
 <pre><code class="haskell">  putStrLn <span class="string">"\nBinary tree of Char binary trees:"</span>
-  print ( treeFromList 
+  print ( treeFromList
            (map treeFromList [<span class="string">"baz"</span>,<span class="string">"zara"</span>,<span class="string">"bar"</span>]))
 </code></pre>
 
@@ -1973,7 +1973,7 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 <p>上面的等价于</p>
 
 <pre><code class="haskell"><span class="title">print</span> ( treeFromList (
-          map treeFromList 
+          map treeFromList
              [ map treeFromList [<span class="string">"YO"</span>,<span class="string">"DAWG"</span>]
              , map treeFromList [<span class="string">"I"</span>,<span class="string">"HEARD"</span>]
              , map treeFromList [<span class="string">"I"</span>,<span class="string">"HEARD"</span>]
@@ -2060,7 +2060,7 @@ list 类型可以重新创建, 需要用到冗长的语法:</p>
 
 <p>怎么做到?</p>
 
-<p>不是去尝试对 <code>numbers</code> 整个地求值, 
+<p>不是去尝试对 <code>numbers</code> 整个地求值,
 只有被需要的元素才会被求值.</p>
 
 <p>而且, 注意 Haskell 里有无限列表的表示法</p>
@@ -2087,7 +2087,7 @@ This code is mostly the same as the previous one.
 <pre><code class="haskell"><span class="import"><span class="keyword">import</span> Debug.Trace <span class="container">(<span class="title">trace</span>)</span></span>
 <span class="import"><span class="keyword">import</span> Data.List</span>
 <span class="class"><span class="keyword">data</span> <span class="label">BinTree</span> a = <span class="label">Empty</span> </span>
-                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a) 
+                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a)
                   <span class="keyword">deriving</span> (<span class="label">Eq</span>,<span class="label">Ord</span>)
 </code></pre>
 
@@ -2103,24 +2103,24 @@ This code is mostly the same as the previous one.
   show t = <span class="string">"&lt; "</span> ++ replace<span class="string"> '\n'</span> <span class="string">"\n: "</span> (treeshow <span class="string">""</span> t)
     <span class="keyword">where</span>
     treeshow pref <span class="label">Empty</span> = <span class="string">""</span>
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) =
                   (pshow pref x)
 
-    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> left)
 
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
-    treeshow pref (<span class="label">Node</span> x left right) = 
+    treeshow pref (<span class="label">Node</span> x left right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"|--"</span> <span class="string">"|  "</span> left) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
     <span class="comment">-- show a tree using some prefixes to make it nice</span>
-    showSon pref before next t = 
+    showSon pref before next t =
                   pref ++ before ++ treeshow (pref ++ next) t
 
     <span class="comment">-- pshow replace "\n" by "\n"++pref</span>
@@ -2130,7 +2130,7 @@ This code is mostly the same as the previous one.
     replace c new string =
       concatMap (change c new) string
       <span class="keyword">where</span>
-          change c new x 
+          change c new x
               | x == c = new
               | otherwise = x:[] <span class="comment">-- "x"</span>
 
@@ -2202,8 +2202,8 @@ This code is mostly the same as the previous one.
 
 <pre><code class="haskell"><span class="title">iTree</span> = <span class="label">Node</span> <span class="number">0</span> (dec iTree) (inc iTree)
         <span class="keyword">where</span>
-           dec (<span class="label">Node</span> x l r) = <span class="label">Node</span> (x-<span class="number">1</span>) (dec l) (dec r) 
-           inc (<span class="label">Node</span> x l r) = <span class="label">Node</span> (x+<span class="number">1</span>) (inc l) (inc r) 
+           dec (<span class="label">Node</span> x l r) = <span class="label">Node</span> (x-<span class="number">1</span>) (dec l) (dec r)
+           inc (<span class="label">Node</span> x l r) = <span class="label">Node</span> (x+<span class="number">1</span>) (inc l) (inc r)
 </code></pre>
 
 
@@ -2218,14 +2218,14 @@ This code is mostly the same as the previous one.
 <pre><code class="haskell"><span class="comment">-- apply a function to each node of Tree</span>
 <span class="title">treeMap</span> :: (a -&gt; b) -&gt; <span class="label">BinTree</span> a -&gt; <span class="label">BinTree</span> b
 <span class="title">treeMap</span> f <span class="label">Empty</span> = <span class="label">Empty</span>
-<span class="title">treeMap</span> f (<span class="label">Node</span> x left right) = <span class="label">Node</span> (f x) 
-                                     (treeMap f left) 
+<span class="title">treeMap</span> f (<span class="label">Node</span> x left right) = <span class="label">Node</span> (f x)
+                                     (treeMap f left)
                                      (treeMap f right)
 </code></pre>
 
 
 </div>
-<p><em>提示</em>: 关于这些我不会说太多. 
+<p><em>提示</em>: 关于这些我不会说太多.
 如果你对生成其他数据结构的 <code>map</code> 感兴趣,
 可以搜索 functor 和 <code>fmap</code>.</p>
 
@@ -2235,8 +2235,8 @@ This code is mostly the same as the previous one.
 
 
 <pre><code class="haskell"><span class="title">infTreeTwo</span> :: <span class="label">BinTree</span> <span class="label">Int</span>
-<span class="title">infTreeTwo</span> = <span class="label">Node</span> <span class="number">0</span> (treeMap (\x -&gt; x-<span class="number">1</span>) infTreeTwo) 
-                    (treeMap (\x -&gt; x+<span class="number">1</span>) infTreeTwo) 
+<span class="title">infTreeTwo</span> = <span class="label">Node</span> <span class="number">0</span> (treeMap (\x -&gt; x-<span class="number">1</span>) infTreeTwo)
+                    (treeMap (\x -&gt; x+<span class="number">1</span>) infTreeTwo)
 </code></pre>
 
 
@@ -2281,22 +2281,21 @@ This code is mostly the same as the previous one.
 
 <h2 id="hell-difficulty-part">超难的地方</h2>
 
-<p>Congratulations for getting so far!
-Now, some of the really hardcore stuff can start.</p>
+<p>祝贺你看了这么远!
+现在一些真的难啃的东西可以开始了</p>
 
-<p>If you are like me, you should get the functional style.
-You should also understand a bit more the advantages of laziness by default.
-But you also don’t really understand where to start in order to make a real
-program.
-And in particular:</p>
+<p>如果你像我这样, 你应该已经懂函数式的风格了.
+你应该也多懂了一点默认采用惰性计算的优势.
+但你也还没弄明白怎么完成一个真正的程序.
+其中特别是:</p>
 
 <ul>
-  <li>How do you deal with effects?</li>
-  <li>Why is there a strange imperative-like notation for dealing with IO?</li>
+  <li>你怎么处理副作用?</li>
+  <li>为什么还有一套命令式的写法的来处理 IO?</li>
 </ul>
 
-<p>Be prepared, the answers might be complex.
-But they all be very rewarding.</p>
+<p>准备一下, 答案可能比较复杂.
+但是答案能带来很多的收获.</p>
 
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/01_IO/01_progressive_io_example.lhs" class="cut">03_Hell/01_IO/<strong>01_progressive_io_example.lhs</strong></a></p>
@@ -2419,7 +2418,7 @@ Let’s try:</p>
     Prelude.read: <span class="literal">no</span> parse
 </code></pre>
 
-<p>Argh! An evil error message and a crash! 
+<p>Argh! An evil error message and a crash!
 The first evolution will be to answer with a more friendly message.</p>
 
 <p>In order to do this, we must detect that something went wrong.
@@ -2443,11 +2442,11 @@ Its definition is:</p>
 
 <p>This is a nice way to tell there was an error while trying to create/compute
 a value.
-The <code>maybeRead</code> function is a great example of this. 
+The <code>maybeRead</code> function is a great example of this.
 This is a function similar to the function <code>read</code><sup id="fnref:1"><a href="#fn:1" rel="footnote">5</a></sup>,
 but if something goes wrong the returned value is <code>Nothing</code>.
 If the value is right, it returns <code>Just &lt;the value&gt;</code>.
-Don’t try to understand too much of this function. 
+Don’t try to understand too much of this function.
 I use a lower level function than <code>read</code>; <code>reads</code>.</p>
 
 <div class="codehighlight">
@@ -2494,11 +2493,11 @@ Otherwise, for example for “1,2,3”, it will return <code>Just [1,2,3]</code>
 <p>In case of error, we display a nice error message.</p>
 
 <p>Note that the type of each expression in the main’s do block remains of the form <code>IO a</code>.
-The only strange construction is <code>error</code>. 
+The only strange construction is <code>error</code>.
 I’ll say <code>error msg</code> will simply take the needed type (here <code>IO ()</code>).</p>
 
 <p>One very important thing to note is the type of all the functions defined so far.
-There is only one function which contains <code>IO</code> in its type: <code>main</code>. 
+There is only one function which contains <code>IO</code> in its type: <code>main</code>.
 This means main is impure.
 But main uses <code>getListFromString</code> which is pure.
 It is then clear just by looking at declared types which functions are pure and
@@ -2557,7 +2556,7 @@ until the input is right.</p>
 
 
 </div>
-<p>This function is of type <code>IO [Integer]</code>. 
+<p>This function is of type <code>IO [Integer]</code>.
 Such a type means that we retrieved a value of type <code>[Integer]</code> through some IO actions.
 Some people might explain while waving their hands: </p>
 
@@ -2624,17 +2623,17 @@ which modifies the state of the world</p>
   <p>A function is guaranteed to have side effects only if it has this type.
 But look at a typical main function:</p>
 
-  <pre><code class="haskell"><span class="title">main</span> w0 = 
+  <pre><code class="haskell"><span class="title">main</span> w0 =
     <span class="keyword">let</span> (v1,w1) = action1 w0 <span class="keyword">in</span>
     <span class="keyword">let</span> (v2,w2) = action2 v1 w1 <span class="keyword">in</span>
     <span class="keyword">let</span> (v3,w3) = action3 v2 w2 <span class="keyword">in</span>
     action4 v3 w3
 </code></pre>
 
-  <p>We have a lot of temporary elements (here <code>w1</code>, <code>w2</code> and <code>w3</code>) 
+  <p>We have a lot of temporary elements (here <code>w1</code>, <code>w2</code> and <code>w3</code>)
 which must be passed on to the next action.</p>
 
-  <p>We create a function <code>bind</code> or <code>(&gt;&gt;=)</code>. 
+  <p>We create a function <code>bind</code> or <code>(&gt;&gt;=)</code>.
 With <code>bind</code> we don’t need temporary names anymore.</p>
 
   <pre><code class="haskell"><span class="title">main</span> =
@@ -2644,7 +2643,7 @@ With <code>bind</code> we don’t need temporary names anymore.</p>
   <p>Bonus: Haskell has syntactical sugar for us:</p>
 
   <pre><code class="haskell"><span class="title">main</span> = <span class="keyword">do</span>
-  v1 &lt;- action1 
+  v1 &lt;- action1
   v2 &lt;- action2 v1
   v3 &lt;- action3 v2
   action4 v3
@@ -2680,7 +2679,7 @@ In fact, for dealing with <code>IO</code>, imperative style is generally more ap
 <p>But you should had noticed the notation is a bit unusual.
 Here is why, in detail.</p>
 
-<p>In an impure language, the state of the world can be seen as a huge hidden global variable. 
+<p>In an impure language, the state of the world can be seen as a huge hidden global variable.
 This hidden variable is accessible by all functions of your language.
 For example, you can read and write a file in any function.
 The fact that a file exists or not can be seen as different states of the world.</p>
@@ -2710,7 +2709,7 @@ Nothing to see here.</p>
 <pre><code class="haskell"><span class="title">main</span> w0 =
     <span class="keyword">let</span> (list,w1) = askUser w0 <span class="keyword">in</span>
     <span class="keyword">let</span> (x,w2) = print (sum list,w1) <span class="keyword">in</span>
-    x 
+    x
 </code></pre>
 
 <p>First, we note that all functions which have side effects must have the type:</p>
@@ -2834,13 +2833,13 @@ let (<span class="built_in">y</span>,w2) = action2 <span class="built_in">x</spa
 
 <p>Now, we will do a magic trick.
 We will make the temporary world symbol “disappear”.
-We will <code>bind</code> the two lines. 
+We will <code>bind</code> the two lines.
 Let’s define the <code>bind</code> function.
 Its type is quite intimidating at first:</p>
 
-<pre><code class="haskell"><span class="title">bind</span> :: (<span class="label">World</span> -&gt; (a,<span class="label">World</span>)) 
-        -&gt; (a -&gt; (<span class="label">World</span> -&gt; (b,<span class="label">World</span>))) 
-        -&gt; (<span class="label">World</span> -&gt; (b,<span class="label">World</span>)) 
+<pre><code class="haskell"><span class="title">bind</span> :: (<span class="label">World</span> -&gt; (a,<span class="label">World</span>))
+        -&gt; (a -&gt; (<span class="label">World</span> -&gt; (b,<span class="label">World</span>)))
+        -&gt; (<span class="label">World</span> -&gt; (b,<span class="label">World</span>))
 </code></pre>
 
 <p>But remember that <code>(World -&gt; (a,World))</code> is the type for an IO action.
@@ -2868,8 +2867,8 @@ This means it changes the state of the world, but doesn’t yield anymore data.<
 
 <p>This type helps us simplify the type of <code>bind</code>:</p>
 
-<pre><code class="haskell"><span class="title">bind</span> :: <span class="label">IO</span> a 
-        -&gt; (a -&gt; <span class="label">IO</span> b) 
+<pre><code class="haskell"><span class="title">bind</span> :: <span class="label">IO</span> a
+        -&gt; (a -&gt; <span class="label">IO</span> b)
         -&gt; <span class="label">IO</span> b
 </code></pre>
 
@@ -2922,7 +2921,7 @@ If you didn’t see what was magic here, let’s try with three lines this time.
 <p>Which is equivalent to:</p>
 
 <pre><code class="haskell">(res,w3) = bind getLine (\line1 -&gt;
-             bind getLine (\line2 -&gt; 
+             bind getLine (\line2 -&gt;
                print (line1 ++ line2)))
 </code></pre>
 
@@ -2931,7 +2930,7 @@ Yes, no temporary World variables are used anywhere!
 This is <em>MA</em>. <em>GIC</em>.</p>
 
 <p>We can use a better notation.
-Let’s use <code>(&gt;&gt;=)</code> instead of <code>bind</code>. 
+Let’s use <code>(&gt;&gt;=)</code> instead of <code>bind</code>.
 <code>(&gt;&gt;=)</code> is an infix function like
 <code>(+)</code>; reminder <code>3 + 4 ⇔ (+) 3 4</code></p>
 
@@ -2982,7 +2981,7 @@ Of course we can use a better notation, we’ll use the <code>(&gt;&gt;)</code> 
 <p>Is transformed into</p>
 
 <pre><code class="haskell"><span class="title">action1</span> &gt;&gt;
-<span class="title">action2</span> &gt;&gt; 
+<span class="title">action2</span> &gt;&gt;
 <span class="title">action3</span>
 </code></pre>
 
@@ -3031,7 +3030,7 @@ This is quite a bad name when you learn Haskell. <code>return</code> is very dif
 <span class="title">getListFromString</span> :: <span class="label">String</span> -&gt; <span class="label">Maybe</span> [<span class="label">Integer</span>]
 <span class="title">getListFromString</span> str = maybeRead $ <span class="string">"["</span> ++ str ++ <span class="string">"]"</span>
 <span class="title">askUser</span> :: <span class="label">IO</span> [<span class="label">Integer</span>]
-<span class="title">askUser</span> = 
+<span class="title">askUser</span> =
     putStrLn <span class="string">"Enter a list of numbers (sep. by commas):"</span> &gt;&gt;
     getLine &gt;&gt;= \input -&gt;
     <span class="keyword">let</span> maybeList = getListFromString input <span class="keyword">in</span>
@@ -3095,13 +3094,13 @@ Here is how the type class <code>Monad</code> is declared (mostly):</p>
   <p>Remarks:</p>
 
   <ul>
-    <li>the keyword <code>class</code> is not your friend. 
+    <li>the keyword <code>class</code> is not your friend.
 A Haskell class is <em>not</em> a class like in object model.
 A Haskell class has a lot of similarities with Java interfaces.
 A better word should have been <code>typeclass</code>.
 That means a set of types.
 For a type to belong to a class, all functions of the class must be provided for this type.</li>
-    <li>In this particular example of type class, the type <code>m</code> must be a type that takes an argument. 
+    <li>In this particular example of type class, the type <code>m</code> must be a type that takes an argument.
 for example <code>IO a</code>, but also <code>Maybe a</code>, <code>[a]</code>, etc…</li>
     <li>
       <p>To be a useful monad, your function must obey some rules.
@@ -3132,25 +3131,25 @@ if you can afford to follow a list of operations without being negative.</p>
 <span class="title">withdraw</span> value account = account - value
 
 <span class="title">eligible</span> :: (<span class="label">Num</span> a,<span class="label">Ord</span> a) =&gt; a -&gt; <span class="label">Bool</span>
-<span class="title">eligible</span> account = 
+<span class="title">eligible</span> account =
   <span class="keyword">let</span> account1 = deposit <span class="number">100</span> account <span class="keyword">in</span>
-    <span class="keyword">if</span> (account1 &lt; <span class="number">0</span>) 
+    <span class="keyword">if</span> (account1 &lt; <span class="number">0</span>)
     <span class="keyword">then</span> <span class="label">False</span>
-    <span class="keyword">else</span> 
+    <span class="keyword">else</span>
       <span class="keyword">let</span> account2 = withdraw <span class="number">200</span> account1 <span class="keyword">in</span>
-      <span class="keyword">if</span> (account2 &lt; <span class="number">0</span>) 
+      <span class="keyword">if</span> (account2 &lt; <span class="number">0</span>)
       <span class="keyword">then</span> <span class="label">False</span>
-      <span class="keyword">else</span> 
+      <span class="keyword">else</span>
         <span class="keyword">let</span> account3 = deposit <span class="number">100</span> account2 <span class="keyword">in</span>
-        <span class="keyword">if</span> (account3 &lt; <span class="number">0</span>) 
+        <span class="keyword">if</span> (account3 &lt; <span class="number">0</span>)
         <span class="keyword">then</span> <span class="label">False</span>
-        <span class="keyword">else</span> 
+        <span class="keyword">else</span>
           <span class="keyword">let</span> account4 = withdraw <span class="number">300</span> account3 <span class="keyword">in</span>
-          <span class="keyword">if</span> (account4 &lt; <span class="number">0</span>) 
+          <span class="keyword">if</span> (account4 &lt; <span class="number">0</span>)
           <span class="keyword">then</span> <span class="label">False</span>
-          <span class="keyword">else</span> 
+          <span class="keyword">else</span>
             <span class="keyword">let</span> account5 = deposit <span class="number">1000</span> account4 <span class="keyword">in</span>
-            <span class="keyword">if</span> (account5 &lt; <span class="number">0</span>) 
+            <span class="keyword">if</span> (account5 &lt; <span class="number">0</span>)
             <span class="keyword">then</span> <span class="label">False</span>
             <span class="keyword">else</span>
               <span class="label">True</span>
@@ -3176,16 +3175,16 @@ if you can afford to follow a list of operations without being negative.</p>
 <span class="title">deposit</span> value account = <span class="label">Just</span> (account + value)
 
 <span class="title">withdraw</span> :: (<span class="label">Num</span> a,<span class="label">Ord</span> a) =&gt; a -&gt; a -&gt; <span class="label">Maybe</span> a
-<span class="title">withdraw</span> value account = <span class="keyword">if</span> (account &lt; value) 
-                         <span class="keyword">then</span> <span class="label">Nothing</span> 
+<span class="title">withdraw</span> value account = <span class="keyword">if</span> (account &lt; value)
+                         <span class="keyword">then</span> <span class="label">Nothing</span>
                          <span class="keyword">else</span> <span class="label">Just</span> (account - value)
 
 <span class="title">eligible</span> :: (<span class="label">Num</span> a, <span class="label">Ord</span> a) =&gt; a -&gt; <span class="label">Maybe</span> <span class="label">Bool</span>
 <span class="title">eligible</span> account = <span class="keyword">do</span>
-  account1 &lt;- deposit <span class="number">100</span> account 
-  account2 &lt;- withdraw <span class="number">200</span> account1 
-  account3 &lt;- deposit <span class="number">100</span> account2 
-  account4 &lt;- withdraw <span class="number">300</span> account3 
+  account1 &lt;- deposit <span class="number">100</span> account
+  account2 &lt;- withdraw <span class="number">200</span> account1
+  account3 &lt;- deposit <span class="number">100</span> account2
+  account4 &lt;- withdraw <span class="number">300</span> account3
   account5 &lt;- deposit <span class="number">1000</span> account4
   <span class="label">Just</span> <span class="label">True</span>
 
@@ -3210,8 +3209,8 @@ if you can afford to follow a list of operations without being negative.</p>
 <span class="title">deposit</span> value account = <span class="label">Just</span> (account + value)
 
 <span class="title">withdraw</span> :: (<span class="label">Num</span> a,<span class="label">Ord</span> a) =&gt; a -&gt; a -&gt; <span class="label">Maybe</span> a
-<span class="title">withdraw</span> value account = <span class="keyword">if</span> (account &lt; value) 
-                         <span class="keyword">then</span> <span class="label">Nothing</span> 
+<span class="title">withdraw</span> value account = <span class="keyword">if</span> (account &lt; value)
+                         <span class="keyword">then</span> <span class="label">Nothing</span>
                          <span class="keyword">else</span> <span class="label">Just</span> (account - value)
 
 <span class="title">eligible</span> :: (<span class="label">Num</span> a, <span class="label">Ord</span> a) =&gt; a -&gt; <span class="label">Maybe</span> <span class="label">Bool</span>
@@ -3239,7 +3238,7 @@ In fact, this is the kind of construction we make naturally.</p>
   <p>An important remark:</p>
 
   <p>The first element in the sequence being evaluated to <code>Nothing</code> will stop
-the complete evaluation. 
+the complete evaluation.
 This means you don’t execute all lines.
 You have this for free, thanks to laziness.</p>
 </blockquote>
@@ -3291,9 +3290,9 @@ Here we go:</p>
 <div class="codehighlight">
 
 
-<pre><code class="haskell">  print $ [ (x,y,z) |&nbsp;x &lt;- allCases, 
-                      y &lt;- allCases, 
-                      z &lt;- allCases, 
+<pre><code class="haskell">  print $ [ (x,y,z) |&nbsp;x &lt;- allCases,
+                      y &lt;- allCases,
+                      z &lt;- allCases,
                       <span class="number">4</span>*x + <span class="number">2</span>*y &lt; z ]
 </code></pre>
 
@@ -3312,7 +3311,7 @@ In particular, monad are very useful for: </p>
   <li>…</li>
 </ul>
 
-<p>If you have followed me until here, then you’ve done it! 
+<p>If you have followed me until here, then you’ve done it!
 You know monads<sup id="fnref:03021301"><a href="#fn:03021301" rel="footnote">8</a></sup>!</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/02_Monads/13_Monads.lhs" class="cut">03_Hell/02_Monads/<strong>13_Monads.lhs</strong> </a></p>
@@ -3349,7 +3348,7 @@ This code is mostly the same as the one in the [tree section](#trees).
 
 <pre><code class="haskell"><span class="import"><span class="keyword">import</span> Data.List</span>
 <span class="class"><span class="keyword">data</span> <span class="label">BinTree</span> a = <span class="label">Empty</span> </span>
-                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a) 
+                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a)
                   <span class="keyword">deriving</span> (<span class="label">Eq</span>,<span class="label">Ord</span>)
 
 <span class="comment">-- declare BinTree a to be an instance of Show</span>
@@ -3359,24 +3358,24 @@ This code is mostly the same as the one in the [tree section](#trees).
   show t = <span class="string">"&lt; "</span> ++ replace<span class="string"> '\n'</span> <span class="string">"\n: "</span> (treeshow <span class="string">""</span> t)
     <span class="keyword">where</span>
     treeshow pref <span class="label">Empty</span> = <span class="string">""</span>
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) =
                   (pshow pref x)
 
-    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> left)
 
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
-    treeshow pref (<span class="label">Node</span> x left right) = 
+    treeshow pref (<span class="label">Node</span> x left right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"|--"</span> <span class="string">"|  "</span> left) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
     <span class="comment">-- show a tree using some prefixes to make it nice</span>
-    showSon pref before next t = 
+    showSon pref before next t =
                   pref ++ before ++ treeshow (pref ++ next) t
 
     <span class="comment">-- pshow replace "\n" by "\n"++pref</span>
@@ -3386,7 +3385,7 @@ This code is mostly the same as the one in the [tree section](#trees).
     replace c new string =
       concatMap (change c new) string
       <span class="keyword">where</span>
-          change c new x 
+          change c new x
               | x == c = new
               | otherwise = x:[] <span class="comment">-- "x"</span>
 
@@ -3471,15 +3470,15 @@ This code is mostly the same as the one in the [tree section](#trees).
 :       `<span class="comment">--4242</span>
 </code></pre>
 
-<p>Yay! It ends! 
+<p>Yay! It ends!
 Beware though, it will only work if you always have something to put into a branch.</p>
 
 <p>For example </p>
 
-<pre><code class="haskell"><span class="title">treeTakeDepth</span> <span class="number">4</span> (treeFromList [<span class="number">1.</span>.]) 
+<pre><code class="haskell"><span class="title">treeTakeDepth</span> <span class="number">4</span> (treeFromList [<span class="number">1.</span>.])
 </code></pre>
 
-<p>will loop forever. 
+<p>will loop forever.
 Simply because it will try to access the head of <code>filter (&lt;1) [2..]</code>.
 But <code>filter</code> is not smart enought to understand that the result is the empty list.</p>
 
@@ -3508,7 +3507,7 @@ This code is mostly the same as the preceding one.
 <pre><code class="haskell"><span class="import"><span class="keyword">import</span> Debug.Trace <span class="container">(<span class="title">trace</span>)</span></span>
 <span class="import"><span class="keyword">import</span> Data.List</span>
 <span class="class"><span class="keyword">data</span> <span class="label">BinTree</span> a = <span class="label">Empty</span> </span>
-                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a) 
+                 | <span class="label">Node</span> a (<span class="label">BinTree</span> a) (<span class="label">BinTree</span> a)
                   <span class="keyword">deriving</span> (<span class="label">Eq</span>,<span class="label">Ord</span>)
 </code></pre>
 
@@ -3524,24 +3523,24 @@ This code is mostly the same as the preceding one.
   show t = <span class="string">"&lt; "</span> ++ replace<span class="string"> '\n'</span> <span class="string">"\n: "</span> (treeshow <span class="string">""</span> t)
     <span class="keyword">where</span>
     treeshow pref <span class="label">Empty</span> = <span class="string">""</span>
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> <span class="label">Empty</span>) =
                   (pshow pref x)
 
-    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) = 
+    treeshow pref (<span class="label">Node</span> x left <span class="label">Empty</span>) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> left)
 
-    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) = 
+    treeshow pref (<span class="label">Node</span> x <span class="label">Empty</span> right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
-    treeshow pref (<span class="label">Node</span> x left right) = 
+    treeshow pref (<span class="label">Node</span> x left right) =
                   (pshow pref x) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"|--"</span> <span class="string">"|  "</span> left) ++ <span class="string">"\n"</span> ++
                   (showSon pref <span class="string">"`--"</span> <span class="string">"   "</span> right)
 
     <span class="comment">-- show a tree using some prefixes to make it nice</span>
-    showSon pref before next t = 
+    showSon pref before next t =
                   pref ++ before ++ treeshow (pref ++ next) t
 
     <span class="comment">-- pshow replace "\n" by "\n"++pref</span>
@@ -3551,7 +3550,7 @@ This code is mostly the same as the preceding one.
     replace c new string =
       concatMap (change c new) string
       <span class="keyword">where</span>
-          change c new x 
+          change c new x
               | x == c = new
               | otherwise = x:[] <span class="comment">-- "x"</span>
 
@@ -3579,10 +3578,10 @@ To resolve this we make a slightly better <code>shuffle</code> function.</p>
 
 
 <pre><code class="haskell"><span class="title">shuffle</span> = map rand [<span class="number">1.</span>.]
-          <span class="keyword">where</span> 
+          <span class="keyword">where</span>
               rand x = ((p x) `mod` (x+c)) - ((x+c) `div` <span class="number">2</span>)
               p x = m*x^<span class="number">2</span> + n*x + o <span class="comment">-- some polynome</span>
-              m = <span class="number">3123</span>    
+              m = <span class="number">3123</span>
               n = <span class="number">31</span>
               o = <span class="number">7641</span>
               c = <span class="number">1237</span>
@@ -3612,7 +3611,7 @@ Furthermore, by construction, each node value is unique in the tree.</p>
 <pre><code class="haskell"><span class="title">treeFromList</span> :: (<span class="label">Ord</span> a, <span class="label">Show</span> a) =&gt; [a] -&gt; <span class="label">BinTree</span> a
 <span class="title">treeFromList</span> []    = <span class="label">Empty</span>
 <span class="title">treeFromList</span> (x:xs) = <span class="label">Node</span> x left right
-          <span class="keyword">where</span> 
+          <span class="keyword">where</span>
               left = treeFromList $ safefilter (&lt;x) xs
               right = treeFromList $ safefilter (&gt;x) xs
 </code></pre>
@@ -3631,10 +3630,10 @@ If it cannot find an element for which the test is true after 10000 consecutive 
       nbTry = <span class="number">10000</span>
       safefilter' _ _ <span class="number">0</span> = []
       safefilter' _ [] _ = []
-      safefilter' f (x:xs) n = 
-                  <span class="keyword">if</span> f x 
-                     <span class="keyword">then</span> x : safefilter' f xs nbTry 
-                     <span class="keyword">else</span> safefilter' f xs (n-<span class="number">1</span>) 
+      safefilter' f (x:xs) n =
+                  <span class="keyword">if</span> f x
+                     <span class="keyword">then</span> x : safefilter' f xs nbTry
+                     <span class="keyword">else</span> safefilter' f xs (n-<span class="number">1</span>)
 </code></pre>
 
 
@@ -3658,7 +3657,7 @@ This is because Haskell compute each value when it needs it.
 And in this case, this is when asked to print it on the screen.</p>
 
 <p>Impressively enough, try to replace the depth from <code>8</code> to <code>100</code>.
-It will work without killing your RAM! 
+It will work without killing your RAM!
 The flow and the memory management is done naturally by Haskell.</p>
 
 <p>Left as an exercise to the reader:</p>
@@ -3677,9 +3676,9 @@ Create a worst case list to give as parameter to <code>treeFromList</code>.<br>
   <li>Suppose that <code>shuffle</code> is real random list with growing bounds.
 If you study a bit this structure, you’ll discover that with probability 1,
 this structure is finite.
-Using the following code 
+Using the following code
 (suppose we could use <code>safefilter'</code> directly as if was not in the where of safefilter)
-find a definition of <code>f</code> such that with probability <code>1</code>, 
+find a definition of <code>f</code> such that with probability <code>1</code>,
 treeFromList’ shuffle is infinite. And prove it.
 Disclaimer, this is only a conjecture.</li>
 </ul>
@@ -3696,12 +3695,12 @@ Disclaimer, this is only a conjecture.</li>
 
 <h2 id="thanks">Thanks</h2>
 
-<p>Thanks to <a href="http://reddit.com/r/haskell"><code>/r/haskell</code></a> and 
+<p>Thanks to <a href="http://reddit.com/r/haskell"><code>/r/haskell</code></a> and
 <a href="http://reddit.com/r/programming"><code>/r/programming</code></a>.
 Your comment were most than welcome.</p>
 
-<p>Particularly, I want to thank <a href="https://github.com/Emm">Emm</a> a thousand times 
-for the time he spent on correcting my English. 
+<p>Particularly, I want to thank <a href="https://github.com/Emm">Emm</a> a thousand times
+for the time he spent on correcting my English.
 Thank you man.</p>
 <hr><div class="footnotes">
   <ol>
@@ -3733,16 +3732,9 @@ Thank you man.</p>
 </div>
                 </div>
                 <div id="social">
-                    <div class="left">  
+                    <div class="left">
      </div>
                     <div class="left"> <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="106"></div>
-    <script type="text/javascript">
-      (function() {
-          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-          po.src = 'https://apis.google.com/js/plusone.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-      })();
-    </script>
      </div>
                     <div class="flush"></div>
                 </div>
@@ -3770,7 +3762,7 @@ Thank you man.</p>
                         </div>
                         <div id="next_articles">
                             next entries
-                            
+
                             <div class="next_article">
                                 <a href="http://yannesposito.com/Scratch/en/blog/Haskell-OpenGL-Mandelbrot/">Haskell Progressive Example&nbsp;<span class="nicer">»</span></a>
                             </div>
@@ -3787,12 +3779,12 @@ Thank you man.</p>
                     </div>
                     <div id="lastmod">
                         Created: 02/08/2012
-                        Modified: 06/05/2012 
+                        Modified: 06/05/2012
                     </div>
                     <div>
                         Entirely done with
                         <a href="http://www.vim.org/">Vim</a>
-                        and 
+                        and
                         <a href="http://nanoc.stoneship.org/">nanoc</a>
                     </div>
                 </div>
