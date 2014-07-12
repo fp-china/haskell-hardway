@@ -2307,7 +2307,7 @@ This code is mostly the same as the previous one.
 <blockquote>
   <p><span class="sc"><abbr title="Too long; didn&#39;t read">tl;dr</abbr>: </span></p>
 
-  <p>A typical function doing <code>IO</code> looks a lot like an imperative program:</p>
+  <p>一个典型的处理 <code>IO</code> 的函数看起来很像是一个命令式的程序:</p>
 
   <pre><code class="perl">f :: IO a
 f = <span class="keyword">do</span>
@@ -2318,9 +2318,9 @@ f = <span class="keyword">do</span>
 </code></pre>
 
   <ul>
-    <li>To set a value to an object we use <code>&lt;-</code> .</li>
-    <li>The type of each line is <code>IO *</code>;
-in this example:
+    <li>我们用 <code>&lt;-</code> 把值设置到对象.</li>
+    <li>每一行的类型是 <code>IO *</code>;
+这个例子里:
       <ul>
         <li><code>action1     :: IO b</code></li>
         <li><code>action2 x   :: IO ()</code></li>
@@ -2329,23 +2329,23 @@ in this example:
         <li><code>x :: b</code>, <code>y :: c</code></li>
       </ul>
     </li>
-    <li>Few objects have the type <code>IO a</code>, this should help you choose.
-In particular you cannot use pure functions directly here.
-To use pure functions you could do <code>action2 (purefunction x)</code> for example.</li>
+    <li>很少的对象的类型是 <code>IO a</code>, 这可以帮你做选择.
+特别地, 这里不能直接用纯函数代码.
+比如对应纯函数你需要写 <code>action2 (purefunction x)</code>.</li>
   </ul>
 </blockquote>
 
-<p>In this section, I will explain how to use IO, not how it works.
-You’ll see how Haskell separates the pure from the impure parts of the program.</p>
+<p>这个章节里, 我将解释怎样使用 IO, 但不是 IO 怎样工作.
+你可以看到 Haskell 是怎样把纯函数和不纯的程序分离开的.</p>
 
-<p>Don’t stop because you’re trying to understand the details of the syntax.
-Answers will come in the next section.</p>
+<p>别停下, 下面你会理解语法的细节.
+答案会在下面的章节.</p>
 
-<p>What to achieve?</p>
+<p>获取什么?</p>
 
 <blockquote>
-  <p>Ask a user to enter a list of numbers.
-Print the sum of the numbers</p>
+  <p>让一个用户输入数字的列表.
+打印所有数字的和</p>
 </blockquote>
 
 <div class="codehighlight">
@@ -2362,15 +2362,15 @@ Print the sum of the numbers</p>
 
 
 </div>
-<p>It should be straightforward to understand the behavior of this program.
-Let’s analyze the types in more detail.</p>
+<p>这个程序里理解其行为应该比较直接.
+让我们从细节理解分析下类型.</p>
 
 <pre><code class="haskell"><span class="title">putStrLn</span> :: <span class="label">String</span> -&gt; <span class="label">IO</span> ()
 <span class="title">getLine</span>  :: <span class="label">IO</span> <span class="label">String</span>
 <span class="title">print</span>    :: <span class="label">Show</span> a =&gt; a -&gt; <span class="label">IO</span> ()
 </code></pre>
 
-<p>Or more interestingly, we note that each expression in the <code>do</code> block has a type of <code>IO a</code>.</p>
+<p>更有趣的是, 可以注意到每个 <code>do</code> 表达式有着 <code>IO a</code> 的类型.</p>
 
 <pre>main = do
   putStrLn "Enter ... " :: <span class="high">IO ()</span>
@@ -2378,39 +2378,39 @@ Let’s analyze the types in more detail.</p>
   print Something       :: <span class="high">IO ()</span>
 </pre>
 
-<p>We should also pay attention to the effect of the <code>&lt;-</code> symbol.</p>
+<p>我们应该注意一下  <code>&lt;-</code> 符号的作用.</p>
 
 <pre><code class="sql"><span class="operator"><span class="keyword">do</span>
  x &lt;- something
 </span></code></pre>
 
-<p>If <code>something :: IO a</code> then <code>x :: a</code>.</p>
+<p>如果有 <code>something :: IO a</code> 那么有 <code>x :: a</code>.</p>
 
-<p>Another important note about using <code>IO</code>.
-All lines in a do block must be of one of the two forms:</p>
+<p>使用 <code>IO</code> 还有个重要的注意点.
+do block 里每一行必须是下面两种形式之一:</p>
 
 <pre><code class="cs">action1             :: IO a
                     -- <span class="keyword">in</span> <span class="keyword">this</span> <span class="keyword">case</span>, generally a = ()
 </code></pre>
 
-<p>or</p>
+<p>或者</p>
 
 <pre><code class="haskell"><span class="title">value</span> &lt;- action2    <span class="comment">-- where</span>
                     <span class="comment">-- bar z t :: IO b</span>
                     <span class="comment">-- value   :: b</span>
 </code></pre>
 
-<p>These two kinds of line will correspond to two different ways of sequencing actions.
-The meaning of this sentence should be clearer by the end of the next section.</p>
+<p>这两种写法将对应两种将操作串行的方法.
+这一点将在下一个章节结束前会更加清晰.</p>
 
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/01_IO/01_progressive_io_example.lhs" class="cut">03_Hell/01_IO/<strong>01_progressive_io_example.lhs</strong> </a></p>
 
 <hr>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/code/03_Hell/01_IO/02_progressive_io_example.lhs" class="cut">03_Hell/01_IO/<strong>02_progressive_io_example.lhs</strong></a></p>
 
-<p>Now let’s see how this program behaves.
-For example, what occur if the user enter something strange?
-Let’s try:</p>
+<p>现在来看看这个程序怎么跑.
+比如, 用户遇到奇怪的事情会怎么样?
+试一下:</p>
 
 <pre><code class="coffeescript">    % runghc <span class="number">02</span>_progressive_io_example.lhs
     Enter a list <span class="keyword">of</span> numbers (separated <span class="keyword">by</span> comma):
@@ -2418,13 +2418,13 @@ Let’s try:</p>
     Prelude.read: <span class="literal">no</span> parse
 </code></pre>
 
-<p>Argh! An evil error message and a crash!
-The first evolution will be to answer with a more friendly message.</p>
+<p>哎呀! 一个不幸的错误, 程序运行出错!
+第一个可以改进的地方是用一条友好的信息来提示.</p>
 
-<p>In order to do this, we must detect that something went wrong.
-Here is one way to do this.
-Use the type <code>Maybe</code>.
-It is a very common type in Haskell.</p>
+<p>为了给出提示, 首先要探测到错误.
+有这样的办法去做.
+使用 <code>Maybe</code> 类型.
+这是 Haskell 里很普通的类型.</p>
 
 <div class="codehighlight">
 
@@ -2434,8 +2434,8 @@ It is a very common type in Haskell.</p>
 
 
 </div>
-<p>What is this thing? <code>Maybe</code> is a type which takes one parameter.
-Its definition is:</p>
+<p>这是什么东西? <code>Maybe</code> 是一个类型, 可以接收一个类型.
+它的定义是:</p>
 
 <pre><code class="haskell"><span class="class"><span class="keyword">data</span> <span class="label">Maybe</span> a = <span class="label">Nothing</span> | <span class="label">Just</span> a</span>
 </code></pre>
